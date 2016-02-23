@@ -7,6 +7,7 @@
 * Use branches, pull requests, and descriptive commit messages to close each issue once the work is done.
 
 **Site requirements**
+
 *A user should be able to:*
 
 * sign up
@@ -21,7 +22,7 @@
 * follow other users (wait for help from your instructor)
 * see a list of users they follow
 
-__Advanced functionality, if you have time, could include:__
+*Advanced functionality, if you have time, could include:*
 
 * a user can upload a profile picture (checkout the Paperclip gem)
 * a user can follow another user without leaving the page they're on (look into JQuery/AJAX)
