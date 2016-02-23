@@ -21,7 +21,7 @@
 * follow other users (wait for help from your instructor)
 * see a list of users they follow
 
-_Advanced functionality, if you have time, could include:_
+__Advanced functionality, if you have time, could include:__
 
 * a user can upload a profile picture (checkout the Paperclip gem)
 * a user can follow another user without leaving the page they're on (look into JQuery/AJAX)
