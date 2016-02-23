@@ -1,4 +1,4 @@
-Before you start coding
+**Before you start coding**
 
 * Start out by sketching out your app. How will the user sign-in flow work? How will users create new posts? How will users follow other users? Who is this platform for? Illustrate and think through all of these processes. Start out on paper or using prototyping software like OmniGraffle, Photoshop, or Illustrator.
 * Have your plans approved by your instructor before moving forward.
@@ -6,9 +6,8 @@ Before you start coding
 * open issues to be assigned to each group member for all of the tasks to be done.
 * Use branches, pull requests, and descriptive commit messages to close each issue once the work is done.
 
-Site requirements
-
-A user should be able to:
+**Site requirements**
+*A user should be able to:*
 
 * sign up
 * sign in
@@ -22,7 +21,7 @@ A user should be able to:
 * follow other users (wait for help from your instructor)
 * see a list of users they follow
 
-Advanced functionality, if you have time, could include:
+_Advanced functionality, if you have time, could include:_
 
 * a user can upload a profile picture (checkout the Paperclip gem)
 * a user can follow another user without leaving the page they're on (look into JQuery/AJAX)
@@ -31,7 +30,7 @@ Advanced functionality, if you have time, could include:
 
 Your project should look good, don't make the front end bare-bones. Feel free to use JavaScript for awesome front end interactions! Good luck, have fun, and learn a lot! You have until the end of class on Friday for class time as well as the weekend if you'd like to make any final tweaks before your project is submitted.
 
-Grading criteria:
+**Grading criteria:**
 
 1. A user is able to perform all CRUD actions
 2. A user is able to perform all CRUD actions on a post (and that a post is no longer than 150 characters)
