@@ -12,6 +12,7 @@ get "/" do
 
 	erb :home
 
+
 end
 
 get "/acct" do
@@ -42,9 +43,28 @@ post "/" do
 		redirect "/"
 	end
 
+end
+
 def current_user
 	if session[:user_id]
 		@current_user = User.find(session[:user_id])
 
 	end
 end
+
+get "/profile" do 
+  @posts = Post.all
+  
+  erb :profile
+end
+
+post "/profile" do 
+  Post.create(user_id: user.id, content: [params:content], post_date: Time.now)
+  redirect "/profile"
+end
+
+get "/feed" do 
+
+  erb :feed
+end
+
