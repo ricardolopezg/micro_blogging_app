@@ -12,3 +12,15 @@ get "/" do
 
 	erb :home
 end
+
+get "/acct" do
+
+  erb :acct
+end
+
+post "/acct" do
+
+  #update command with params
+
+  redirect "/acct"
+end
