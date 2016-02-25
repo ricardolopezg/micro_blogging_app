@@ -43,16 +43,6 @@ post "/" do
 	end
 end
 
-def current_user
-	@current_user = User.find(session[:user_id])
-
-
-    redirect "/"
-  else
-    flash[:alert] = "Wrong info motherfucker"
-    redirect "/"
-  end
-end
 
 def current_user
     @current_user = User.find(session[:user_id])
