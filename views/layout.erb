@@ -22,11 +22,13 @@
   			<li><a href="/profile">Profile</a></li>
   		</ul>
 
-  		<ul class="usernamenav">
-  			<li>
-  				<%= current_user.username %>
-  			</li>
-  		</ul>
+  		<% if session[:user_id] %>
+  			<ul class="usernamenav">
+  				<li>
+  					<%= current_user.username %>
+  				</li>
+  			</ul>
+  		<% end %>
   	</nav>
 
 
