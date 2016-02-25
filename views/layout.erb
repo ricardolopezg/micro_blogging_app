@@ -10,33 +10,39 @@
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Raleway|Poiret+One|Josefin+Sans|Abel' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  	<nav>
-  		<ul class="navbar">
-  			<li><a href="/feed">Feed</a></li>
-  			<li><a href="/browse">Browse</a></li>
-  			<li><a href="/profile">Profile</a></li>
-  		</ul>
 
-  		<ul class="usernamenav">
-  			<li>
-  				<%= current_user.username %>
-  			</li>
-  		</ul>
-  	</nav>
+    <nav class="navbar-default">
 
 
-	<% if flash[:notice] %>
-		<div class="flash notice">
-			<%= flash[:notice] %>
-		</div>
-	<% end %>
+    <nav>
 
-	<% if flash[:alert] %>
-		<div class= "alert notice">
-			<%= flash[:alert] %>
-		</div>
-		<% end %>
+      <ul class="navbar">
+        <li><a href="/feed">Feed</a></li>
+        <li><a href="/browse">Browse</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
 
+      <% if session[:user_id] %>
+        <ul class="usernamenav">
+          <li>
+            <%= current_user.username %>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+
+
+  <% if flash[:notice] %>
+    <div class="flash notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class= "alert notice">
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
 
 
   <%= yield %>
