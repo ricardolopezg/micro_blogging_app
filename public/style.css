@@ -4,11 +4,23 @@ nav{
 
 }
 
-ul{
+/*ul{
 	background-color: grey;
 	width: 100vw;
 	padding: 10px;
 }
+*/
+
+
+.navbar-default {
+  background-color: #f3f1f4;
+  border-color: #bdbdbd;
+  height: 100px;
+  width: 100vw;
+}
+
+
+
 
 .navbar{
 	float: left;
@@ -49,6 +61,23 @@ a:hover, a:visited, a:link, a:active
 
 	float: left;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .flash{
