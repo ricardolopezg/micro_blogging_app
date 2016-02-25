@@ -41,6 +41,7 @@ post "/" do
 		flash[:alert] = "Wrong info motherfucker"
 		redirect "/"
 	end
+end
 
 def current_user
 	if session[:user_id]
