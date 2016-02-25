@@ -1,1 +1,11 @@
-Sup
+<form action = "/profile" method = "POST">
+  <input type = "text" name = "content" placeholder = "Comment" style = "height: 130px; width: 600px"></input>
+  <input type = "Submit" value = "Post"></input>
+</form>
+
+<div class = "user_post">
+Your Posts:
+<% @posts.each do |post| %>
+<%= post.content %>
+<% end %>  
+</div>
