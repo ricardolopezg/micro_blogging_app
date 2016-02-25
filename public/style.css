@@ -1,0 +1,64 @@
+/*navbar*/
+nav{
+
+
+}
+
+ul{
+	background-color: grey;
+	width: 100vw;
+	padding: 10px;
+}
+
+.navbar{
+	float: left;
+	list-style: none;
+	position: fixed;
+	z-index: 100;
+}
+
+ul, li {
+	position: relative;
+
+	float: left;
+	padding-left: 10px;
+	margin-left: 70px;
+	font-family: 'Josefin Sans', sans-serif;
+/*	font-family: 'Abel', sans-serif;*/
+	text-transform: uppercase;
+}
+
+
+.usernamenav {
+	float: left;
+	margin-left: 900px;
+	list-style: none;
+	position: fixed;
+	z-index: 1000;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: black;
+}
+
+.login{
+	margin-top: 300px;
+	margin-left: 450px;
+
+	float: left;
+}
+
+
+.flash{
+
+}
+
+.notice{
+
+}
+
+.alert{
+
+}
