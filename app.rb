@@ -35,6 +35,17 @@ post "/" do
     flash[:notice] = "Welcome home motherfucker"
     puts @current_user 
 
+<<<<<<< HEAD
+		redirect "/"
+	else
+		flash[:alert] = "Wrong info motherfucker"
+		redirect "/"
+	end
+end
+
+def current_user
+	@current_user = User.find(session[:user_id])
+=======
 
     redirect "/"
   else
@@ -57,6 +68,7 @@ end
 post "/profile" do 
   Post.create(user_id: user.id, content: [params:content], post_date: Time.now)
   redirect "/profile"
+>>>>>>> master
 end
 
 get "/feed" do 
