@@ -14,6 +14,18 @@ get "/" do
 
 end
 
+get "/acct" do
+
+  erb :acct
+end
+
+post "/acct" do
+
+  #update command with params
+
+  redirect "/acct"
+end
+
 
 post "/" do
 
@@ -30,15 +42,9 @@ post "/" do
 		redirect "/"
 	end
 
-	
-end
-
 def current_user
 	if session[:user_id]
 		@current_user = User.find(session[:user_id])
 
 	end
 end
-
-
-
