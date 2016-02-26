@@ -135,6 +135,7 @@ body {
 #container {
    min-height:100%;
    position:relative;
+   z-index: -1;
 }
 #header {
    padding:10px;
