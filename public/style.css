@@ -161,7 +161,7 @@ body {
   border: lightblue 3px solid;
   border-radius: 10px;
   background-color: lightblue;
-  height: 1em; 
+  height: 2em; 
   width: 4em;
 }
 
@@ -184,39 +184,27 @@ body {
 	border-radius: 10px;
 }
 
-.user_post .post_timestamp {
-	font-size: .75em;
+.user_post .post_content {
+  font-weight: 900;
+  padding: 0 15px 15px;
 }
 
-.post_content {
-	font-weight: 900;
-}
-
-.post_timestamp {
+.user_post .post_username {
+  font-size: .9em;
+  padding: 0 15px 15px;
   position: relative;
-  left: 40px;
+  top: 1em;
 }
 
+.user_post .post_timestamp {
+  font-size: .75em;
+  position: absolute;
+  right: 3.5em;
+  margin: -33px;
+  padding: 0 15px 15px;
+}
 
 /* Profile Page - End 
-
-
-
-#newInfo {
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-}
-
-#newInfo input {
-  width: 150px;
-}
-
-#fieldNames, #currentInfo, #newInfo {
-  
-}
-
-/****************************/
-
 
 
 /*Account Page CSS Goes Here*/
@@ -238,6 +226,31 @@ body {
   margin: 0;
   padding: 0;
 }
+
+#newInfo {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+#newInfo input {
+  width: 150px;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+/*Account page end*/
+
+
+/*Browse page begin*/
+
+#userlist li {
+  display: block;
+}
+
+/*Browse page end*/
+
 .user_post {
   position: relative;
   left: 12.5em;
@@ -249,19 +262,6 @@ body {
   width: 31.8em;
   border: lightblue 3px solid;
   border-radius: 10px;
-}
-
-.user_post .post_timestamp {
-  font-size: .75em;
-}
-
-.post_content {
-  font-weight: 900;
-}
-
-.post_timestamp {
-  position: relative;
-  left: 40px;
 }
 
 

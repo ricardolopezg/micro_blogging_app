@@ -37,13 +37,6 @@ post "/acct" do
   user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
   user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
 
-  # puts current_user.username
-  # puts params[:username]
-
-  # @user.username = params[:username] if !params[:username].nil?
-
-  # @current_user.save
-
   redirect "/acct"
 end
 
@@ -71,16 +64,16 @@ post "/" do
 end
 
 
-def current_user
+  def current_user
     @current_user = User.find(session[:user_id])
-    
-end
+  end
+
 
 get "/logout" do
-    session[:username] = nil
-     flash[:logout] = "Good bye motherfucker"
+  session[:username] = nil
+   flash[:logout] = "Good bye motherfucker"
 
-    redirect "/"
+  redirect "/"
 end
 
 post "/signup" do
@@ -103,11 +96,9 @@ end
 
 post "/profile" do 
 
-  @timestamp = Time.now.strftime("%b %-d, %Y  %l:%M%p")
-
-
-  Post.create(content: params[:content], post_date: @timestamp)
+  Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
   redirect "/profile"
+
 
 end
 
