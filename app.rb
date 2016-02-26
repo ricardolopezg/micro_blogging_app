@@ -71,16 +71,16 @@ post "/" do
 end
 
 
-def current_user
+  def current_user
     @current_user = User.find(session[:user_id])
-    
-end
+  end
+
 
 get "/logout" do
-    session[:username] = nil
-     flash[:logout] = "Good bye motherfucker"
+  session[:username] = nil
+   flash[:logout] = "Good bye motherfucker"
 
-    redirect "/"
+  redirect "/"
 end
 
 post "/signup" do
@@ -103,11 +103,9 @@ end
 
 post "/profile" do 
 
-  @timestamp = Time.now.strftime("%b %-d, %Y  %l:%M%p")
-
-
-  Post.create(content: params[:content], post_date: @timestamp)
+  Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
   redirect "/profile"
+
 
 end
 
