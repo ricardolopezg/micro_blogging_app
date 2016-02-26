@@ -32,13 +32,32 @@
 
     <label>New Info</label><br><hr>
     <input type="text" name="username" placeholder="New Username"/><br>
-    <input type="text" name="email" placeholder="New Email"/><br>
+    <input type="email" name="email" placeholder="New Email"/><br>
     <input type="password" name="password" placeholder="New Password"/><br>
     <input type="text" name="fname" placeholder="New First Name"/><br>
     <input type="text" name="lname" placeholder="New Last Name"/><br>
     <input type="date" name="birthday" placeholder="New Birthday"/><br>
-    <input type="text" name="gender" placeholder="New Gender"/><br>
-    <input type="text" name="sign" placeholder="New Sign"/><br>
+    <select name="gender" placeholder="New Gender"/>
+        <datalist id="genders">
+        <option value = "Male">Male</option>
+        <option value = "Female">Female</option>
+        <option value = "Depends on the day">Depends on the day</option>
+        <option value = "Trans">Trans</option>
+    </select><br>
+    <select name="sign" placeholder="New Sign">
+        <option value = "Aries">Aries</option>
+        <option value = "Taurus">Taurus</option>
+        <option value = "Gemini">Gemini</option>
+        <option value = "Cancer">Cancer</option>
+        <option value = "Leo">Leo</option>
+        <option value = "Virgo">Virgo</option>
+        <option value = "Libra">Libra</option>
+        <option value = "Scorpio">Scorpio</option>
+        <option value = "Sagittarius">Sagitarrius</option>
+        <option value = "Capricorn">Capricorn</option>
+        <option value = "Aquarius">Aquarius</option>
+        <option value = "Pisces">Pisces</option>
+    </select><br>
     <br>
     <input type="submit" value="Update Info">
 

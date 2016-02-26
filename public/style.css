@@ -1,11 +1,14 @@
 /*navbar*/
-nav{}
+nav{
+	position: relative;
+}
 
 .navbar-default {
 	background-color: #f3f1f4;
 	border-color: #bdbdbd;
 	height: 30px;
 	width: 100vw;
+	position: fixed;
 }
 
 
@@ -98,7 +101,7 @@ input:placeholder-shown {
 }
 
 
-img{
+.background{
 	height: 100vh;
 	width: 100vw;
 }
@@ -114,6 +117,30 @@ img{
 
 .alert{
 
+}
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:93.8vh;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
 }
 
 
@@ -183,24 +210,6 @@ img{
 /* Profile Page - End 
 
 
-
-#newInfo {
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-}
-
-#newInfo input {
-  width: 150px;
-}
-
-#fieldNames, #currentInfo, #newInfo {
-  
-}
-
-/****************************/
-
-
-
 /*Account Page CSS Goes Here*/
 
 #acctInfo {
@@ -221,6 +230,42 @@ img{
   padding: 0;
 }
 
+#newInfo {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+#newInfo input {
+  width: 150px;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+/*Account page end*/
+
+
+/*Browse page begin*/
+
+#userlist li {
+  display: block;
+}
+
+/*Browse page end*/
+
+.user_post {
+  position: relative;
+  left: 12.5em;
+  top: 9em;
+  border: 1px solid red;
+  width: 40em;
+  font-size: 1.2em;
+  padding: 0 15px 30px;
+  width: 31.8em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+}
 
 
 
