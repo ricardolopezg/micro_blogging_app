@@ -191,24 +191,6 @@ img{
 /* Profile Page - End 
 
 
-
-#newInfo {
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-}
-
-#newInfo input {
-  width: 150px;
-}
-
-#fieldNames, #currentInfo, #newInfo {
-  
-}
-
-/****************************/
-
-
-
 /*Account Page CSS Goes Here*/
 
 #acctInfo {
@@ -228,6 +210,31 @@ img{
   margin: 0;
   padding: 0;
 }
+
+#newInfo {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+#newInfo input {
+  width: 150px;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+/*Account page end*/
+
+
+/*Browse page begin*/
+
+#userlist li {
+  display: block;
+}
+
+/*Browse page end*/
+
 .user_post {
   position: relative;
   left: 12.5em;
