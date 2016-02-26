@@ -112,23 +112,30 @@ a:hover, a:visited, a:link, a:active
   border: 1px solid red;
   width: 40em;
   font-size: 1.2em;
-  padding: 0 15px 30px;
+  padding: 0 15px 15px;
   width: 31.8em;
   border: lightblue 3px solid;
   border-radius: 10px;
 }
 
+.user_post .post_content {
+  font-weight: 900;
+  padding: 0 15px 15px;
+}
+
+.user_post .post_username {
+  font-size: .9em;
+  padding: 0 15px 15px;
+  position: relative;
+  top: 1em;
+}
+
 .user_post .post_timestamp {
   font-size: .75em;
-}
-
-.post_content {
-  font-weight: 900;
-}
-
-.post_timestamp {
-  position: relative;
-  left: 40px;
+  position: absolute;
+  right: 3.5em;
+  margin: -33px;
+  padding: 0 15px 15px;
 }
 /* Profile Page - End */
 

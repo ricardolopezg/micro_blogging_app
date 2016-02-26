@@ -47,9 +47,10 @@ post "/" do
 end
 
 
-def current_user
+  def current_user
     @current_user = User.find(session[:user_id])
-end
+    # @current_username = User.where(id: post.user_id).pluck(:username).first
+  end
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile" do 
@@ -60,11 +61,9 @@ end
 
 post "/profile" do 
 
-  @timestamp = Time.now.strftime("%b %-d, %Y  %l:%M%p")
-
-
-  Post.create(content: params[:content], post_date: @timestamp)
+  Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
   redirect "/profile"
+
 
 end
 
