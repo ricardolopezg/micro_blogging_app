@@ -12,7 +12,8 @@
     <%= post.content %>
   </p>
   <p class = "post_timestamp">
-    <%= post.post_date %>
+  <!--   <%= post.post_date %> -->
+      <%= Time.now.strftime("%b %-d, %Y  %l:%M%p") %>
   </p>
   <% end %>  
 </div>

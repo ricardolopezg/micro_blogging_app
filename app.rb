@@ -39,7 +39,7 @@ post "/" do
     puts @current_user 
 
 
-    redirect "/"
+    redirect "/feed"
   else
     flash[:alert] = "Wrong info motherfucker"
     redirect "/"
@@ -50,6 +50,10 @@ end
 def current_user
     @current_user = User.find(session[:user_id])
 end
+
+
+
+
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile" do 
