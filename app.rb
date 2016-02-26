@@ -88,8 +88,8 @@ end
 
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
-get "/profile" do 
-  @posts = Post.all
+get "/profile/:id" do 
+  @posts = Post.where(user_id: params[:id])
   
   erb :profile
 end
@@ -97,7 +97,7 @@ end
 post "/profile" do 
 
   Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
-  redirect "/profile"
+  redirect "/profile/#{current_user.id}"
 
 
 end
@@ -105,7 +105,7 @@ end
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
-
+  @posts = Post.all
   erb :feed
 end
 

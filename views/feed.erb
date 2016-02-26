@@ -1,0 +1,17 @@
+<h2 id = "posts_title">Your Posts:</h2>
+<div class = "user_post">
+  <% @posts.reverse_each do |post| %>
+  
+  <p class = "post_content">  
+    <%= post.content %>
+  </p>
+  <p class = "post_username">  
+    <%= User.where(id: post.user_id).pluck(:username).first %>
+  </p>
+  <p class = "post_timestamp">
+    <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
+  </p>
+  <hr>
+  <% end %>  
+</div>
+  
