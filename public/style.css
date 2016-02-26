@@ -36,7 +36,7 @@ ul, li {
 	list-style: none;
 	position: fixed;
 	z-index: 1000;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 }
 
 
@@ -69,7 +69,7 @@ a:hover, a:visited, a:link, a:active
 	width: 500px;
 	z-index: 1000;
 	position: absolute;
-	margin-left: 450px;
+	margin-left: 400px;
 	margin-top: 200px;
 
 }
@@ -87,7 +87,7 @@ a:hover, a:visited, a:link, a:active
 	z-index: 30000;
 	/*border: 1px solid white;*/
 	background-color: rgb(96, 96, 96,0,0.6);
-	width: 400px;
+/*	width: 400px;*/
 	padding-top: 30px;
 	padding-left: 50px;
 	height: 200px;
@@ -97,20 +97,6 @@ input:placeholder-shown {
 	font-family: 'sans-serif', sans-serif;
 }
 
-.signup{
-/*	margin-top: 100px;
-	margin-left: 450px;*/
-	float: left;
-	z-index: 30000;
-	/*  border: 1px solid white;*/
-	position: fixed;
-	background-color: rgb(96, 96, 96,0,0.6);
-	padding: 100px;
-	width: 400px;
-	height: 200px;
-
-
-}
 
 img{
 	height: 100vh;
