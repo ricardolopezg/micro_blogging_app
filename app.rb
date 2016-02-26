@@ -76,6 +76,20 @@ def current_user
     
 end
 
+get "/logout" do
+    session[:username] = nil
+     flash[:logout] = "Good bye motherfucker"
+
+    redirect "/"
+end
+
+post "/signup" do
+	User.create(username: params[:username], password: params[:password], 
+		email: params[:email] )
+	redirect "/feed"
+
+end
+
 
 
 

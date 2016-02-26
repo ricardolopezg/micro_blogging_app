@@ -20,13 +20,12 @@
 	  		</ul>
 
 	  			<% if session[:user_id] %>
-
 	  				<ul class="usernamenav">
 	  					<li>
 							<%= current_user.username %>
 							<ul class="fallback">
 					       		<li><a class="padding"  href="#">Account</a></li>
-					        	<li><a class="paddinga" href="#">Log Out</a></li>
+					        	<li><a class="paddinga" href="/logout">Log Out</a></li>
 					    	</ul>
 						</li>
 					</ul>
@@ -43,9 +42,13 @@
 		<div class= "alert notice">
 			<%= flash[:alert] %>
 		</div>
+	<% end %>
 
-		<% end %>
-
+	<% if flash[:logout] %>
+		<div class="flash notice">
+			<%= flash[:logout] %>
+		</div>
+	<% end %>
 
 
   <%= yield %>
