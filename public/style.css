@@ -98,7 +98,7 @@ input:placeholder-shown {
 }
 
 
-img{
+.background{
 	height: 100vh;
 	width: 100vw;
 }
@@ -114,6 +114,30 @@ img{
 
 .alert{
 
+}
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:93.8vh;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
 }
 
 
@@ -239,7 +263,6 @@ img{
   position: relative;
   left: 40px;
 }
-
 
 
 
