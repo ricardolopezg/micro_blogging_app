@@ -130,6 +130,7 @@ body {
    margin:0;
    padding:0;
    height:98vh;
+   font-family: 'Josefin Sans', sans-serif;
 }
 #container {
    min-height:100%;
@@ -150,8 +151,12 @@ body {
    height:60px;   /* Height of the footer */
 }
 footer{
-	font-size: 12px;
-	margin-left: 10px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+#container {
+  clear: both;
 }
 
 
@@ -159,7 +164,7 @@ footer{
 /* Profile Page - Begin */
 #post_form  textarea{
   position: relative;
-  top: 10em;
+  top: 9em;
   left: 12.5em;
   width: 31.8em;
   padding: 15px 15px 37px;
@@ -170,7 +175,7 @@ footer{
 
 #post_form  input[type = "Submit"] {
   position: relative;
-  top: 11.4em;
+  top: 10.4em;
   left: 16em;
   border: lightblue 3px solid;
   border-radius: 10px;
@@ -181,21 +186,22 @@ footer{
 
 #posts_title {
   position: relative;
-  top: 8em;
+  top: 7em;
   left: 10em;
+  margin: 0;
 }
 
 .user_post {
-	position: relative;
-	left: 12.5em;
-	top: 9em;
-	border: 1px solid red;
-	width: 40em;
-	font-size: 1.2em;
-	padding: 0 15px 30px;
-	width: 31.8em;
-	border: lightblue 3px solid;
-	border-radius: 10px;
+  position: relative;
+  left: 12.5em;
+  top: 9em;
+  border: 1px solid red;
+  width: 40em;
+  font-size: 1.2em;
+  padding: 0 15px 30px;
+  width: 31.8em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
 }
 
 .user_post .post_content {
@@ -227,6 +233,8 @@ footer{
   line-height: 30px;
   display: flex;
   justify-content: space-around;
+  position: relative;
+  top: 50px;
 }
 
 #acctInfo ul {
@@ -261,24 +269,13 @@ footer{
 
 #userlist li {
   display: block;
+  top: 2em;
+  font-size: 24px;
+  padding-top: 16px;
+
 }
 
 /*Browse page end*/
-
-.user_post {
-  position: relative;
-  left: 12.5em;
-  top: 9em;
-  border: 1px solid red;
-  width: 40em;
-  font-size: 1.2em;
-  padding: 0 15px 30px;
-  width: 31.8em;
-  border: lightblue 3px solid;
-  border-radius: 10px;
-}
-
-
 
 
 
