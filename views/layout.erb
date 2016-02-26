@@ -11,7 +11,8 @@
 </head>
 <body>
 
-<nav class="navbar-default">
+
+	<nav class="navbar-default">
 	  		<ul class="navbar">
 	  			<li><a href="/feed">Feed</a></li>
 	  			<li><a href="/browse">Browse</a></li>
@@ -29,8 +30,8 @@
 					    	</ul>
 						</li>
 					</ul>
-	  		<% end %>
-</nav>
+	  			<% end %>
+	</nav>
 
 	<% if flash[:notice] %>
 		<div class="flash notice">
@@ -42,6 +43,7 @@
 		<div class= "alert notice">
 			<%= flash[:alert] %>
 		</div>
+
 		<% end %>
 
 

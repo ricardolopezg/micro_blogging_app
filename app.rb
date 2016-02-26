@@ -28,7 +28,14 @@ post "/acct" do
 
   user = current_user
 
-  user.update_attribute(:username, params[:username])
+  user.update_attribute(:username, params[:username]) if params[:username] != ""
+  user.update_attribute(:email, params[:email]) if params[:email] != ""
+  user.update_attribute(:password, params[:password]) if params[:password] != ""
+  user.update_attribute(:fname, params[:fname]) if params[:fname] != ""
+  user.update_attribute(:lname, params[:lname]) if params[:lname] != ""
+  user.update_attribute(:birthday, params[:birthday]) if params[:birthday] != ""
+  user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
+  user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
 
   # puts current_user.username
   # puts params[:username]
