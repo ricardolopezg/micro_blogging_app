@@ -37,13 +37,6 @@ post "/acct" do
   user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
   user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
 
-  # puts current_user.username
-  # puts params[:username]
-
-  # @user.username = params[:username] if !params[:username].nil?
-
-  # @current_user.save
-
   redirect "/acct"
 end
 
