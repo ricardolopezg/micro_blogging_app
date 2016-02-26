@@ -1,15 +1,7 @@
-<ol>
-
-<% @users.each do |user| %>
-
-<li>
-
-
-<%= user.username %>
-
-
-</li>
-
-<% end %>
-
-</ol>
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <a href = "profile/<%= user.id %>"><%= user.username %></a>
+  </li><br>
+  <% end %>
+</ul>
