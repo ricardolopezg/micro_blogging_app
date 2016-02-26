@@ -15,6 +15,8 @@ get "/" do
 
 end
 
+
+# ACCOUNT >>>>>>>>>>>>>>>>>>>
 get "/acct" do
 
   # current_user
@@ -46,6 +48,7 @@ get "/browse" do
 end
 
 
+# SIGNUP/LOGIN >>>>>>>>>>>>>>>>>>>
 post "/" do
 
   @user = User.where(email: params[:email]).first
@@ -53,11 +56,11 @@ post "/" do
     session[:user_id] = @user.id
     flash[:notice] = "Welcome home motherfucker"
 
-		redirect "/"
-	else
-		flash[:alert] = "Wrong info motherfucker"
-		redirect "/"
-	end
+    redirect "/feed"
+  else
+    flash[:alert] = "Wrong info motherfucker"
+    redirect "/"
+  end
 end
 
 
@@ -66,6 +69,10 @@ def current_user
 end
 
 
+
+
+
+# PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile" do 
   @posts = Post.all
   
@@ -73,11 +80,17 @@ get "/profile" do
 end
 
 post "/profile" do 
-  Post.create(user_id: user.id, content: [params:content], post_date: Time.now)
+
+  @timestamp = Time.now.strftime("%b %-d, %Y  %l:%M%p")
+
+
+  Post.create(content: params[:content], post_date: @timestamp)
   redirect "/profile"
 
 end
 
+
+# FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
 
   erb :feed

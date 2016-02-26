@@ -1,25 +1,12 @@
 /*navbar*/
-nav{
-
-
-}
-
-/*ul{
-	background-color: grey;
-	width: 100vw;
-	padding: 10px;
-}
-*/
-
+nav{}
 
 .navbar-default {
-  background-color: #f3f1f4;
-  border-color: #bdbdbd;
-  height: 100px;
-  width: 100vw;
+	background-color: #f3f1f4;
+	border-color: #bdbdbd;
+	height: 30px;
+	width: 100vw;
 }
-
-
 
 
 .navbar{
@@ -27,57 +14,87 @@ nav{
 	list-style: none;
 	position: fixed;
 	z-index: 100;
+	margin-left: 100px;
+	margin-top: 10px;
+
 }
+
 
 ul, li {
 	position: relative;
-
+	margin-left: 40px;
 	float: left;
-	padding-left: 10px;
-	margin-left: 70px;
 	font-family: 'Josefin Sans', sans-serif;
-/*	font-family: 'Abel', sans-serif;*/
 	text-transform: uppercase;
 }
 
 
 .usernamenav {
 	float: left;
+	margin-top: 10px;
 	margin-left: 900px;
 	list-style: none;
 	position: fixed;
 	z-index: 1000;
 }
 
+
+nav ul li ul.fallback {
+	display:none;
+	position: absolute;
+	list-style-type: none;
+
+}
+nav ul li:hover ul.fallback {
+	display:block;
+	list-style-type: none;
+}
+
+
+
 a:hover, a:visited, a:link, a:active
 {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
+
+
+
+/*Login page */
+
 
 .login{
-	margin-top: 300px;
+	margin-top: 50px;
 	margin-left: 450px;
-
 	float: left;
+	z-index: 30000;
+	/*  border: 1px solid white;*/
+	position: fixed;
+	background-color: rgb(96, 96, 96,0,0.6);
+	padding: 100px;
+	width: 400px;
+	height: 200px;
+}
+
+.signup{
+	margin-top: 100px;
+	margin-left: 450px;
+	float: left;
+	z-index: 30000;
+	/*  border: 1px solid white;*/
+	position: fixed;
+	background-color: rgb(96, 96, 96,0,0.6);
+	padding: 100px;
+	width: 400px;
+	height: 200px;
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+img{
+	height: 100vh;
+	width: 100vw;
+}
 
 
 .flash{
@@ -91,6 +108,70 @@ a:hover, a:visited, a:link, a:active
 .alert{
 
 }
+
+
+
+/* Profile Page - Begin */
+#post_form  textarea{
+	position: relative;
+	top: 10em;
+	left: 12.5em;
+	width: 31.8em;
+	padding: 15px 15px 37px;
+	font-size: 1.2em;
+	border: lightblue 3px solid;
+	border-radius: 10px;
+}
+
+#post_form  input[type = "Submit"] {
+	position: relative;
+	top: 11.4em;
+	left: 16em;
+	border: lightblue 3px solid;
+	border-radius: 10px;
+	background-color: lightblue;
+	height: 1em; 
+	width: 4em;
+}
+
+#posts_title {
+	position: relative;
+	top: 8em;
+	left: 10em;
+}
+
+.user_post {
+	position: relative;
+	left: 12.5em;
+	top: 9em;
+	border: 1px solid red;
+	width: 40em;
+	font-size: 1.2em;
+	padding: 0 15px 30px;
+	width: 31.8em;
+	border: lightblue 3px solid;
+	border-radius: 10px;
+}
+
+.user_post .post_timestamp {
+	font-size: .75em;
+}
+
+.post_content {
+	font-weight: 900;
+}
+
+.post_timestamp {
+	position: relative;
+	left: 40px;
+}
+/* Profile Page - End 
+
+
+
+
+
+
 
 /*Account Page CSS Goes Here*/
 
