@@ -1,6 +1,7 @@
 /*navbar*/
 nav{
 	position: relative;
+	z-index: 1000;
 }
 
 .navbar-default {
@@ -9,6 +10,7 @@ nav{
 	height: 30px;
 	width: 100vw;
 	position: fixed;
+	
 }
 
 
@@ -108,6 +110,10 @@ input:placeholder-shown {
 
 
 .flash{
+	/*position: absolute;
+	z-index: 1000;
+	border: 1px solid black;
+	margin-top: 20px;*/
 
 }
 
@@ -123,7 +129,7 @@ html,
 body {
    margin:0;
    padding:0;
-   height:93.8vh;
+   height:98vh;
 }
 #container {
    min-height:100%;
@@ -140,7 +146,12 @@ body {
    position:absolute;
    bottom:0;
    width:100%;
+
    height:60px;   /* Height of the footer */
+}
+footer{
+	font-size: 12px;
+	margin-left: 10px;
 }
 
 
