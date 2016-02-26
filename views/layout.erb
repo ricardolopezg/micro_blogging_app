@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="navigation">
+
 	<nav class="navbar-default">
 	  		<ul class="navbar">
 	  			<li><a href="/feed">Feed</a></li>
@@ -23,7 +23,7 @@
 
 	  				<ul class="usernamenav">
 	  					<li>
-				<%= current_user.username %>
+							<%= current_user.username %>
 							<ul class="fallback">
 					       		<li><a class="padding"  href="#">Account</a></li>
 					        	<li><a class="paddinga" href="#">Log Out</a></li>
@@ -33,18 +33,18 @@
 	  			<% end %>
 	</nav>
 
-		<% if flash[:notice] %>
-			<div class="flash notice">
-				<%= flash[:notice] %>
-			</div>
-		<% end %>
+	<% if flash[:notice] %>
+		<div class="flash notice">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 
-		<% if flash[:alert] %>
-			<div class= "alert notice">
-				<%= flash[:alert] %>
-			</div>
-			<% end %>
-</div>
+	<% if flash[:alert] %>
+		<div class= "alert notice">
+			<%= flash[:alert] %>
+		</div>
+
+		<% end %>
 
 
 
@@ -52,3 +52,6 @@
 
 </body>
 </html>
+<!-- 
+turkuaz@nydcda.com
+mademedoit -->
