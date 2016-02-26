@@ -87,9 +87,21 @@ a:hover, a:visited, a:link, a:active
 	padding: 100px;
 	width: 400px;
 	height: 200px;
-
 }
 
+.signup{
+	margin-top: 100px;
+	margin-left: 450px;
+	float: left;
+	z-index: 30000;
+	/*  border: 1px solid white;*/
+	position: fixed;
+	background-color: rgb(96, 96, 96,0,0.6);
+	padding: 100px;
+	width: 400px;
+	height: 200px;
+
+}
 
 img{
 	height: 100vh;
@@ -113,31 +125,31 @@ img{
 
 /* Profile Page - Begin */
 #post_form  textarea{
-	position: relative;
-	top: 10em;
-	left: 12.5em;
-	width: 31.8em;
-	padding: 15px 15px 37px;
-	font-size: 1.2em;
-	border: lightblue 3px solid;
-	border-radius: 10px;
+  position: relative;
+  top: 10em;
+  left: 12.5em;
+  width: 31.8em;
+  padding: 15px 15px 37px;
+  font-size: 1.2em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
 }
 
 #post_form  input[type = "Submit"] {
-	position: relative;
-	top: 11.4em;
-	left: 16em;
-	border: lightblue 3px solid;
-	border-radius: 10px;
-	background-color: lightblue;
-	height: 1em; 
-	width: 4em;
+  position: relative;
+  top: 11.4em;
+  left: 16em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+  background-color: lightblue;
+  height: 1em; 
+  width: 4em;
 }
 
 #posts_title {
-	position: relative;
-	top: 8em;
-	left: 10em;
+  position: relative;
+  top: 8em;
+  left: 10em;
 }
 
 .user_post {
@@ -162,13 +174,73 @@ img{
 }
 
 .post_timestamp {
-	position: relative;
-	left: 40px;
+  position: relative;
+  left: 40px;
 }
+
+
 /* Profile Page - End 
 
 
 
+#newInfo {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+#newInfo input {
+  width: 150px;
+}
+
+#fieldNames, #currentInfo, #newInfo {
+  
+}
+
+/****************************/
 
 
 
+/*Account Page CSS Goes Here*/
+
+#acctInfo {
+  line-height: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#acctInfo ul {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#acctInfo ul li {
+  margin: 0;
+  padding: 0;
+}
+.user_post {
+  position: relative;
+  left: 12.5em;
+  top: 9em;
+  border: 1px solid red;
+  width: 40em;
+  font-size: 1.2em;
+  padding: 0 15px 30px;
+  width: 31.8em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+}
+
+.user_post .post_timestamp {
+  font-size: .75em;
+}
+
+.post_content {
+  font-weight: 900;
+}
+
+.post_timestamp {
+  position: relative;
+  left: 40px;
+}
