@@ -1,11 +1,22 @@
-<form action = "/profile" method = "POST">
-  <input type = "text" name = "content" placeholder = "Comment" style = "height: 130px; width: 600px"></input>
+<form id = "post_form" action = "/profile" method = "POST">
+  <!-- <input type = "text" name = "content" placeholder = "Comment in 140 characters or less" maxlength = "140"></input> -->
+  <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140"></textarea>
   <input type = "Submit" value = "Post"></input>
 </form>
 
+
+<h2 id = "posts_title">Your Posts:</h2>
 <div class = "user_post">
-Your Posts:
-<% @posts.each do |post| %>
-<%= post.content %>
-<% end %>  
+  <% @posts.each do |post| %>
+  <p class = "post_content">  
+    <%= post.content %>
+  </p>
+  <p class = "post_timestamp">
+    <%= post.post_date %>
+  </p>
+  <% end %>  
 </div>
+  
+
+  <%= Time.now.strftime("%d/%m/%Y %H:%M") %><br><br>
+  <%= Time.now.strftime("%b %-d, %Y  %l:%M%p") %>
