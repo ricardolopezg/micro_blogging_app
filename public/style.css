@@ -36,6 +36,7 @@ ul, li {
 	list-style: none;
 	position: fixed;
 	z-index: 1000;
+	border: 1px solid black;
 }
 
 
@@ -94,12 +95,11 @@ a:hover, a:visited, a:link, a:active
 
 input:placeholder-shown {
 	font-family: 'sans-serif', sans-serif;
-/*	text-transform: uppercase;*/
-
+}
 
 .signup{
-	margin-top: 100px;
-	margin-left: 450px;
+/*	margin-top: 100px;
+	margin-left: 450px;*/
 	float: left;
 	z-index: 30000;
 	/*  border: 1px solid white;*/
