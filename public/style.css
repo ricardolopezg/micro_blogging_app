@@ -1,11 +1,14 @@
 /*navbar*/
-nav{}
+nav{
+	position: relative;
+}
 
 .navbar-default {
 	background-color: #f3f1f4;
 	border-color: #bdbdbd;
 	height: 30px;
 	width: 100vw;
+	position: fixed;
 }
 
 
