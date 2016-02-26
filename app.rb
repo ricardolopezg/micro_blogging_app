@@ -5,6 +5,7 @@ require "./models"
 require "sinatra/flash"
 
 enable :sessions
+set :sessions, true
 
 set :database, "sqlite3:horo.db"
 
@@ -16,14 +17,32 @@ end
 
 get "/acct" do
 
+  # current_user
+
   erb :acct
 end
 
 post "/acct" do
 
-  #update command with params
+  user = current_user
+
+  user.update_attribute(:username, params[:username])
+
+  # puts current_user.username
+  # puts params[:username]
+
+  # @user.username = params[:username] if !params[:username].nil?
+
+  # @current_user.save
 
   redirect "/acct"
+end
+
+get "/browse" do
+
+  @users = User.all
+
+  erb :browse
 end
 
 
@@ -33,8 +52,6 @@ post "/" do
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "Welcome home motherfucker"
-    puts @current_user 
-
 
 		redirect "/"
 	else

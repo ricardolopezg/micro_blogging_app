@@ -1,29 +1,45 @@
 <div id="acctInfo">
   
+    <strong>
+      <ul id="fieldList">
+        <li>Account Details</li><br><hr>
+        <li>Username: </li><br>
+        <li>Email: </li><br>
+        <li>Password: </li><br>
+        <li>First Name: </li><br>
+        <li>Last Name: </li><br>
+        <li>Birthday: </li><br>
+        <li>Gender: </li><br>
+        <li>Sign: </li><br>
+      </ul>
+    </strong>
+
   <ul id="currentInfo">
-  
-    <li>Username: <%= current_user.username %></li>
-    <li>Email: <%= current_user.email %></li>
-    <li>Password: <%= current_user.password %></li>
-    <li>First Name: <%= current_user.fname %></li>
-    <li>Last Name: <%= current_user.lname %></li>
-    <li>Birthday: <%= current_user.birthday %></li>
-    <li>Gender: <%= current_user.gender %></li>
-    <li>Sign: <%= current_user.sign %></li>
+    
+    <li>Current Info</li><br><hr>
+    <li><%= current_user.username %></li><br>
+    <li><%= current_user.email %></li><br>
+    <li><%= current_user.password %></li><br>
+    <li><%= current_user.fname %></li><br>
+    <li><%= current_user.lname %></li><br>
+    <li><%= current_user.birthday %></li><br>
+    <li><%= current_user.gender %></li><br>
+    <li><%= current_user.sign %></li><br>
 
   </ul>
 
-  <form id="newInfo">
+  <form id="newInfo" method="post" action="/acct">
 
-    <input type="text" name="username" placeholder="New Username"/>
-    <input type="text" name="email" placeholder="New Email"/>
-    <input type="password" name="password" placeholder="New Password"/>
-    <input type="text" name="fname" placeholder="New First Name"/>
-    <input type="text" name="lname" placeholder="New Last Name"/>
-    <input type="date" name="birthday" placeholder="New Birthday"/>
-    <input type="text" name="gender" placeholder="New Gender"/>
-    <input type="text" name="sign" placeholder="New Sign"/>
-
+    <label>New Info</label><br><hr>
+    <input type="text" name="username" placeholder="New Username"/><br>
+    <input type="text" name="email" placeholder="New Email"/><br>
+    <input type="password" name="password" placeholder="New Password"/><br>
+    <input type="text" name="fname" placeholder="New First Name"/><br>
+    <input type="text" name="lname" placeholder="New Last Name"/><br>
+    <input type="date" name="birthday" placeholder="New Birthday"/><br>
+    <input type="text" name="gender" placeholder="New Gender"/><br>
+    <input type="text" name="sign" placeholder="New Sign"/><br>
+    <br>
     <input type="submit" value="Update Info">
 
   </form>

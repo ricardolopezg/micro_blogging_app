@@ -91,3 +91,38 @@ a:hover, a:visited, a:link, a:active
 .alert{
 
 }
+
+/*Account Page CSS Goes Here*/
+
+#acctInfo {
+  line-height: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#acctInfo ul {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#acctInfo ul li {
+  margin: 0;
+  padding: 0;
+}
+
+#newInfo {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+#newInfo input {
+  width: 150px;
+}
+
+#fieldNames, #currentInfo, #newInfo {
+  
+}
+
+/****************************/

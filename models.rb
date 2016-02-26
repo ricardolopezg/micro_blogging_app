@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :followers
+
+  attr_accessor :username
 end
 
 class Post < ActiveRecord::Base
