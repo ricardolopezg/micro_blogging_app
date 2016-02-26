@@ -5,9 +5,9 @@ nav{
 }
 
 /*ul{
-	background-color: grey;
-	width: 100vw;
-	padding: 10px;
+  background-color: grey;
+  width: 100vw;
+  padding: 10px;
 }
 */
 
@@ -23,30 +23,30 @@ nav{
 
 
 .navbar{
-	float: left;
-	list-style: none;
-	position: fixed;
-	z-index: 100;
+  float: left;
+  list-style: none;
+  position: fixed;
+  z-index: 100;
 }
 
 ul, li {
-	position: relative;
+  position: relative;
 
-	float: left;
-	padding-left: 10px;
-	margin-left: 70px;
-	font-family: 'Josefin Sans', sans-serif;
-/*	font-family: 'Abel', sans-serif;*/
-	text-transform: uppercase;
+  float: left;
+  padding-left: 10px;
+  margin-left: 70px;
+  font-family: 'Josefin Sans', sans-serif;
+/*  font-family: 'Abel', sans-serif;*/
+  text-transform: uppercase;
 }
 
 
 .usernamenav {
-	float: left;
-	margin-left: 900px;
-	list-style: none;
-	position: fixed;
-	z-index: 1000;
+  float: left;
+  margin-left: 900px;
+  list-style: none;
+  position: fixed;
+  z-index: 1000;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -56,28 +56,11 @@ a:hover, a:visited, a:link, a:active
 }
 
 .login{
-	margin-top: 300px;
-	margin-left: 450px;
+  margin-top: 300px;
+  margin-left: 450px;
 
-	float: left;
+  float: left;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .flash{
@@ -91,3 +74,61 @@ a:hover, a:visited, a:link, a:active
 .alert{
 
 }
+
+
+/* Profile Page - Begin */
+#post_form  textarea{
+  position: relative;
+  top: 10em;
+  left: 12.5em;
+  width: 31.8em;
+  padding: 15px 15px 37px;
+  font-size: 1.2em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+}
+
+#post_form  input[type = "Submit"] {
+  position: relative;
+  top: 11.4em;
+  left: 16em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+  background-color: lightblue;
+  /*height: 1em; 
+  width: 4em;*/
+}
+
+#posts_title {
+  position: relative;
+  top: 8em;
+  left: 10em;
+}
+
+.user_post {
+  position: relative;
+  left: 12.5em;
+  top: 9em;
+  border: 1px solid red;
+  width: 40em;
+  font-size: 1.2em;
+  padding: 0 15px 30px;
+  width: 31.8em;
+  border: lightblue 3px solid;
+  border-radius: 10px;
+}
+
+.user_post .post_timestamp {
+  font-size: .75em;
+}
+
+.post_content {
+  font-weight: 900;
+}
+
+.post_timestamp {
+  position: relative;
+  left: 40px;
+}
+/* Profile Page - End */
+
