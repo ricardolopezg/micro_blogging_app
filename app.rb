@@ -5,6 +5,7 @@ require "./models"
 require "sinatra/flash"
 
 enable :sessions
+set :sessions, true
 
 set :database, "sqlite3:horo.db"
 
@@ -18,14 +19,39 @@ end
 # ACCOUNT >>>>>>>>>>>>>>>>>>>
 get "/acct" do
 
+  # current_user
+
   erb :acct
 end
 
 post "/acct" do
 
-  #update command with params
+  user = current_user
+
+  user.update_attribute(:username, params[:username]) if params[:username] != ""
+  user.update_attribute(:email, params[:email]) if params[:email] != ""
+  user.update_attribute(:password, params[:password]) if params[:password] != ""
+  user.update_attribute(:fname, params[:fname]) if params[:fname] != ""
+  user.update_attribute(:lname, params[:lname]) if params[:lname] != ""
+  user.update_attribute(:birthday, params[:birthday]) if params[:birthday] != ""
+  user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
+  user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
+
+  # puts current_user.username
+  # puts params[:username]
+
+  # @user.username = params[:username] if !params[:username].nil?
+
+  # @current_user.save
 
   redirect "/acct"
+end
+
+get "/browse" do
+
+  @users = User.all
+
+  erb :browse
 end
 
 
@@ -36,10 +62,8 @@ post "/" do
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "Welcome home motherfucker"
-    puts @current_user 
 
-
-    redirect "/"
+    redirect "/feed"
   else
     flash[:alert] = "Wrong info motherfucker"
     redirect "/"
@@ -49,8 +73,26 @@ end
 
   def current_user
     @current_user = User.find(session[:user_id])
-    # @current_username = User.where(id: post.user_id).pluck(:username).first
   end
+
+
+get "/logout" do
+  session[:username] = nil
+   flash[:logout] = "Good bye motherfucker"
+
+  redirect "/"
+end
+
+post "/signup" do
+	User.create(username: params[:username], password: params[:password], 
+		email: params[:email] )
+	redirect "/feed"
+
+end
+
+
+
+
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile" do 
