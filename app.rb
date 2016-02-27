@@ -40,6 +40,20 @@ post "/acct" do
   redirect "/acct"
 end
 
+post "/deleteAcct" do
+
+  user = current_user
+
+  user.destroy
+
+  flash[:acctDelete] = "Your info is DELETED motherfucker"
+
+  redirect "/logout"
+end
+
+
+# BROWSE >>>>>>>>>>>>>>>>>>>>>>>>
+
 get "/browse" do
 
   @users = User.all

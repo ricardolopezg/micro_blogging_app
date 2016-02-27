@@ -29,6 +29,12 @@
 	</div>
 <% end %>
 
+<% if flash[:logout] %>
+  <div class="flash notice">
+    <%= flash[:logout] %>
+  </div>
+<% end %>
+
 
 <nav class="navbar-default">
 <ul class="navbar">
