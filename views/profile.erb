@@ -6,7 +6,15 @@
 
 
 <h2 id = "posts_title">Your Posts:</h2>
-<div class = "user_post">
+
+<div id="followers" class="post_div">
+  <form method="post" action="/follow">
+    <input type="hidden" name="new_followee" value="<%= @profile_id %>">
+    <input type="submit" value="Follow <%= @profile_name %>">
+  </form>
+</div>
+
+<div class = "user_post post_div">
   <% @posts.reverse_each do |post| %>
   
   <p class = "post_content">  
@@ -21,4 +29,9 @@
   <hr>
   <% end %>  
 </div>
+
+<div id="acctData" class="post_div">
+  <!-- RICKY, you can put acct info here -->
+</div>
+
   

@@ -11,6 +11,12 @@ set :database, "sqlite3:horo.db"
 
 get "/" do   
 
+  if session[:user_id]
+
+    redirect "/feed"
+
+  end
+
   erb :home
 
 end
@@ -135,6 +141,9 @@ get "/profile/:id" do
   end
 
   @posts = Post.where(user_id: params[:id])
+
+  @profile_id = params[:id]
+  @profile_name = User.find(@profile_id).username
   
   erb :profile
 end
@@ -147,6 +156,12 @@ post "/profile" do
 
 end
 
+post "/follow" do
+
+
+  redirect "/profile/<%= @profile_id %>"
+
+end
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
