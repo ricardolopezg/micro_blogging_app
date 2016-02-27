@@ -19,9 +19,14 @@ end
 # ACCOUNT >>>>>>>>>>>>>>>>>>>
 get "/acct" do
 
-  # current_user
+  if session[:user_id] == nil
 
-  erb :acct
+    redirect "/"
+
+  end
+
+    erb :acct
+
 end
 
 post "/acct" do
@@ -59,6 +64,12 @@ end
 
 get "/browse" do
 
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @users = User.all
 
   erb :browse
@@ -87,7 +98,7 @@ end
 
 
 get "/logout" do
-  session[:username] = nil
+  session[:user_id] = nil
    flash[:logout] = "Good bye motherfucker"
 
   redirect "/"
@@ -111,6 +122,13 @@ end
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile/:id" do 
+
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @posts = Post.where(user_id: params[:id])
   
   erb :profile
@@ -127,6 +145,12 @@ end
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @posts = Post.all
   erb :feed
 end
