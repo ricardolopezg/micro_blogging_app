@@ -46,7 +46,9 @@
 <ul class="navbar">
 	<li><a href="/feed">Feed</a></li>
 	<li><a href="/browse">Browse</a></li>
+  <% if session[:user_id] %>
 	<li><a href="/profile/<%= current_user.id %>">Profile</a></li>
+  <% end %>
 </ul>
 
 <% if session[:user_id] %>
