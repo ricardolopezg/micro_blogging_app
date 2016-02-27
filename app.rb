@@ -55,7 +55,7 @@ post "/deleteAcct" do
   
   user_posts.each do |post|
     post.destroy
-  end
+  end 
 
   flash[:acctDelete] = "Your info is DELETED motherfucker"
 

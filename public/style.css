@@ -269,6 +269,11 @@ footer{
 
 }
 
+input:placeholder-shown {
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
 /*Account page end*/
 
 
