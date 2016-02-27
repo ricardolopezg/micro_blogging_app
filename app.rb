@@ -50,7 +50,12 @@ post "/deleteAcct" do
   user = current_user
 
   user.destroy
-  # Post.where(user_id: user.id).destroy
+
+  user_posts = Post.where(user_id: user.id)
+  
+  user_posts.each do |post|
+    post.destroy
+  end
 
   flash[:acctDelete] = "Your info is DELETED motherfucker"
 
