@@ -22,7 +22,7 @@
     <li><%= current_user.password %></li><br>
     <li><%= current_user.fname %></li><br>
     <li><%= current_user.lname %></li><br>
-    <li><%= current_user.birthday.strftime("%B %-d, %Y") %></li><br>
+    <li><%= current_user.birthday.strftime("%B %-d, %Y") if !current_user.birthday.nil? %></li><br>
     <li><%= current_user.gender %></li><br>
     <li><%= current_user.sign %></li><br>
 
