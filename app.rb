@@ -158,8 +158,8 @@ end
 
 post "/follow" do
 
-
-  redirect "/profile/<%= @profile_id %>"
+  # redirect "/feed"
+  redirect "/profile/<%= params[:something] %>"
 
 end
 
