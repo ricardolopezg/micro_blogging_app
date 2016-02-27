@@ -29,12 +29,26 @@
 	</div>
 <% end %>
 
+<% if flash[:logout] %>
+  <div class="flash notice">
+    <%= flash[:logout] %>
+  </div>
+<% end %>
+
+<% if flash[:welcome] %>
+  <div class="flash notice">
+    <%= flash[:welcome] %>
+  </div>
+<% end %>
+
 
 <nav class="navbar-default">
 <ul class="navbar">
 	<li><a href="/feed">Feed</a></li>
 	<li><a href="/browse">Browse</a></li>
+  <% if session[:user_id] %>
 	<li><a href="/profile/<%= current_user.id %>">Profile</a></li>
+  <% end %>
 </ul>
 
 <% if session[:user_id] %>

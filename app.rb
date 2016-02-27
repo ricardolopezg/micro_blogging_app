@@ -11,6 +11,12 @@ set :database, "sqlite3:horo.db"
 
 get "/" do   
 
+  if session[:user_id]
+
+    redirect "/feed"
+
+  end
+
   erb :home
 
 end
@@ -19,9 +25,14 @@ end
 # ACCOUNT >>>>>>>>>>>>>>>>>>>
 get "/acct" do
 
-  # current_user
+  if session[:user_id] == nil
 
-  erb :acct
+    redirect "/"
+
+  end
+
+    erb :acct
+
 end
 
 post "/acct" do
@@ -40,7 +51,35 @@ post "/acct" do
   redirect "/acct"
 end
 
+post "/deleteAcct" do
+
+  user = current_user
+
+  user.destroy
+
+  user_posts = Post.where(user_id: user.id)
+  
+  user_posts.each do |post|
+    post.destroy
+  end 
+
+  flash[:acctDelete] = "Your info is DELETED motherfucker"
+
+  session[:user_id] = nil
+
+  redirect "/"
+end
+
+
+# BROWSE >>>>>>>>>>>>>>>>>>>>>>>>
+
 get "/browse" do
+
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
 
   @users = User.all
 
@@ -70,7 +109,7 @@ end
 
 
 get "/logout" do
-  session[:username] = nil
+  session[:user_id] = nil
    flash[:logout] = "Good bye motherfucker"
 
   redirect "/"
@@ -79,6 +118,11 @@ end
 post "/signup" do
 	User.create(username: params[:username], password: params[:password], 
 		email: params[:email] )
+  @user = User.where(email: params[:email]).first
+  session[:user_id] = @user.id
+
+  flash[:welcome] = "Thanks for joining motherfucker"
+
 	redirect "/feed"
 
 end
@@ -89,7 +133,17 @@ end
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile/:id" do 
+
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @posts = Post.where(user_id: params[:id])
+
+  @profile_id = params[:id]
+  @profile_name = User.find(@profile_id).username
   
   erb :profile
 end
@@ -102,9 +156,21 @@ post "/profile" do
 
 end
 
+post "/follow" do
+
+  # redirect "/feed"
+  redirect "/profile/<%= params[:something] %>"
+
+end
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @posts = Post.all
   erb :feed
 end
