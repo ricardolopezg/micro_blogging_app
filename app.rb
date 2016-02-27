@@ -94,6 +94,11 @@ end
 post "/signup" do
 	User.create(username: params[:username], password: params[:password], 
 		email: params[:email] )
+  @user = User.where(email: params[:email]).first
+  session[:user_id] = @user.id
+
+  flash[:welcome] = "Thanks for joining motherfucker"
+
 	redirect "/feed"
 
 end
