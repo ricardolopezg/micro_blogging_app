@@ -49,7 +49,9 @@ post "/deleteAcct" do
 
   flash[:acctDelete] = "Your info is DELETED motherfucker"
 
-  redirect "/logout"
+  session[:user_id] = nil
+
+  redirect "/"
 end
 
 
