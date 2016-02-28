@@ -4,14 +4,34 @@
   <input type = "Submit" value = "Post"></input>
 </form>
 
-
+<!-- I think in order to make this look right, the form should go in the middle div, along with the list of posts. -->
 <h2 id = "posts_title">Your Posts:</h2>
 
 <div id="followers" class="post_div">
+
+  <div id="followerList">
+
+    <h3>Followers:</h3><br>
+    <ol>
+      <% if !@followers.nil? %>
+
+        <% @followers.each do |follower| %>
+        <li><%= User.find(follower.follower_id).username %></li><br>
+        
+        <% end %>
+      
+      <% end %>      
+    </ol><br>
+  </div>
+
+
   <form method="POST" action="/follow">
 
 
     <input type="hidden" name="followee" value="<%= @profile_id %>" />
+
+    <!-- <input type="hidden" name="follower" value="<%= current_user.id %>" /> -->
+
     <input type="submit" value="Follow <%= @profile_name %>" />
 
   </form>
@@ -24,7 +44,7 @@
     <%= post.content %>
   </p>
   <p class = "post_username">  
-    <%= User.where(id: post.user_id).pluck(:username).first %>
+    <%= User.find(post.user_id).username %>
   </p>
   <p class = "post_timestamp">
     <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>

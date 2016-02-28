@@ -144,8 +144,16 @@ get "/profile/:id" do
 
   @profile_id = params[:id]
   @profile_name = User.find(@profile_id).username
+
+
+  @followers = Follower.where(followee_id: params[:id] )
   
   erb :profile
+end
+
+get "/profile" do
+
+  redirect "/profile/#{current_user.id}"
 end
 
 post "/profile" do 
@@ -158,8 +166,17 @@ end
 
 post "/follow" do
 
-  # redirect "/feed"
-  redirect "/profile/<%= params[:something] %>"
+  Follower.create(followee_id: params[:followee], follower_id: current_user.id)
+
+  profile_id = params[:followee]
+  profile_name = User.find(profile_id).username
+
+  flash[:follow] = "You are now following #{profile_name}!"
+
+  redirect "/feed"
+  # redirect "/profile/#{profile_id} %>"
+
+  #I cannot get this redirect to work :(
 
 end
 
