@@ -105,7 +105,8 @@ end
 
   def current_user
     @current_user = User.find(session[:user_id])
-  end
+  end 
+
 
 
 get "/logout" do
@@ -116,14 +117,14 @@ get "/logout" do
 end
 
 post "/signup" do
-	User.create(username: params[:username], password: params[:password], 
-		email: params[:email] )
+  User.create(username: params[:username], password: params[:password], 
+    email: params[:email] )
   @user = User.where(email: params[:email]).first
   session[:user_id] = @user.id
 
   flash[:welcome] = "Thanks for joining motherfucker"
 
-	redirect "/feed"
+  redirect "/feed"
 
 end
 
@@ -135,18 +136,33 @@ end
 get "/profile/:id" do 
 
   if session[:user_id] == nil
-
     redirect "/"
+  end
+  
+  def current_username
+    User.find(params[:id]).username
+  end
 
+  def user_textbox_display
+    User.find(session[:user_id]) == User.find(@profile_id)
   end
 
   @posts = Post.where(user_id: params[:id])
 
   @profile_id = params[:id]
   @profile_name = User.find(@profile_id).username
+
+  @username = User.find(params[:id]).username
+  @fname = User.find(params[:id]).fname
+  @lname = User.find(params[:id]).lname
+  @email = User.find(params[:id]).email
+  @sign = User.find(params[:id]).sign
+  @gender = User.find(params[:id]).gender
+  @birthday = User.find(params[:id]).birthday
   
   erb :profile
 end
+
 
 post "/profile" do 
 
@@ -156,12 +172,17 @@ post "/profile" do
 
 end
 
+
 post "/follow" do
 
   # redirect "/feed"
   redirect "/profile/<%= params[:something] %>"
 
 end
+
+
+
+
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
