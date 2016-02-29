@@ -194,6 +194,10 @@ footer{
   margin: 0;
 }
 
+.update_post_form {
+  display: none;
+}
+
 .user_post {
   position: relative;
   left: 12.5em;

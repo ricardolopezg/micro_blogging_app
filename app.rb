@@ -191,13 +191,18 @@ get "/profile/:id" do
 end
 
 get "/profile" do
-
+  if session[:user_id] == nil
+    redirect "/"
+  end
 
   redirect "/profile/#{current_user.id}"
 end
 
 
 post "/addPost" do 
+  if session[:user_id] == nil
+    redirect "/"
+  end
 
   Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
 
@@ -207,11 +212,29 @@ end
 
 
 post "/deletePost" do
+  if session[:user_id] == nil
+    redirect "/"
+  end
 
   Post.find(params[:post_delete]).destroy
 
   redirect "/profile/#{current_user.id}"
 end
+
+
+
+post "/updatePost" do
+  if session[:user_id] == nil
+    redirect "/"
+  end
+
+    Post.find(params[:post_update]).update(content: params[:content])
+
+  redirect "/profile/#{current_user.id}"
+
+end
+
+
 
 post '/upload' do
 # post '/upload' do
@@ -230,15 +253,6 @@ post '/upload' do
 #     redirect "/profile/#{current_user.id}"
 end
 
-
-
-patch "/editPost" do
-
-  Post.find(params[:post_edit]).update
-
-  redirect "/profile/#{current_user.id}"
-
-end
 
 
 post "/follow" do
