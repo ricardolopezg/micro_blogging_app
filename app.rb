@@ -204,7 +204,9 @@ post "/deletePost" do
   Post.find(params[:post_delete]).destroy
 
   redirect "/profile/#{current_user.id}"
+end
 
+post '/upload' do
 # post '/upload' do
 #     unless params[:file] &&
 #            (tmpfile = params[:file][:tempfile]) &&
