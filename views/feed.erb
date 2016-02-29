@@ -6,7 +6,7 @@
     <%= post.content %>
   </p>
   <p class = "post_username">  
-    <%= User.where(id: post.user_id).pluck(:username).first %>
+    <%= User.find(post.user_id).username %>
   </p>
   <p class = "post_timestamp">
     <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
