@@ -29,7 +29,7 @@ nav{
 }
 
 
-ul, li {
+.margins, .navbar,  .fallback, .padding, .usernamenav {
 	position: relative;
 /*	margin-left: 40px;*/
 	/*float: left;*/
@@ -42,7 +42,7 @@ ul, li {
 .usernamenav {
 	float: left;
 	margin-top: 10px;
-	margin-left: 900px;
+	margin-left: 700px;
 	list-style: none;
 	position: fixed;
 	z-index: 1000;
