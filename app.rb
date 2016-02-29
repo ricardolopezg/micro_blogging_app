@@ -163,7 +163,7 @@ end
 
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
-get "/profile/:id" do 
+get "/profile/:id/:username" do 
 
   if session[:user_id] == nil
     redirect "/"
@@ -177,7 +177,7 @@ get "/profile/:id" do
 
   @profile_id = params[:id]
 
-  @profile_username = User.find(@profile_id).username
+  @profile_username = params[:username]
 
   @followers = Follower.where(followee_id: params[:id] )
 
@@ -194,7 +194,7 @@ end
 get "/profile" do
 
 
-  redirect "/profile/#{current_user.id}"
+  redirect "/profile/#{current_user.id}/#{current_user.username}/"
 end
 
 
@@ -211,7 +211,7 @@ post "/deletePost" do
 
   Post.find(params[:post_delete]).destroy
 
-  redirect "/profile/#{current_user.id}"
+  redirect "/profile/#{current_user.id}/#{current_user.username}/"
 end
 
 post '/upload' do
@@ -237,7 +237,7 @@ patch "/editPost" do
 
   Post.find(params[:post_edit]).update
 
-  redirect "/profile/#{current_user.id}"
+  redirect "/profile/#{current_user.id}/#{current_user.username}/"
 
 end
 
@@ -251,7 +251,7 @@ post "/follow" do
 
   flash[:follow] = "You are now following #{followee_name}!"
 
-  redirect "/profile/#{@followee_num}"
+  redirect "/profile/#{@followee_num}/#{followee_name}"
 
 end
 
