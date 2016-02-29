@@ -153,6 +153,7 @@ end
 
 get "/profile" do
 
+
   redirect "/profile/#{current_user.id}"
 end
 
@@ -168,13 +169,13 @@ post "/follow" do
 
   Follower.create(followee_id: params[:followee], follower_id: current_user.id)
 
-  profile_id = params[:followee]
-  profile_name = User.find(profile_id).username
+  @followee_num = params[:followee]
+  followee_name = User.find(@followee_num).username
 
-  flash[:follow] = "You are now following #{profile_name}!"
+  flash[:follow] = "You are now following #{followee_name}!"
 
+  # redirect "/profile/#{@followee_num} %>"
   redirect "/feed"
-  # redirect "/profile/#{profile_id} %>"
 
   #I cannot get this redirect to work :(
 
