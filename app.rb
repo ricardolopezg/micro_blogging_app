@@ -3,6 +3,11 @@ require "sinatra/activerecord"
 require "sinatra/reloader"
 require "./models"
 require "sinatra/flash"
+require "paperclip"
+require "tempfile"
+
+
+
 
 enable :sessions
 set :sessions, true
@@ -93,6 +98,23 @@ get "/browse" do
 
   erb :browse
 end
+
+
+# post '/upload' do
+#     unless params[:file] &&
+#            (tmpfile = params[:file][:tempfile]) &&
+#            (name = params[:file][:filename])
+#       @error = "No file selected"
+#       return haml(:upload)
+#     end
+#     STDERR.puts "Uploading file, original name #{name.inspect}"
+#     while blk = tmpfile.read(65536)
+#       # here you would write it to its final location
+#       STDERR.puts blk.inspect
+#     end
+#     "Upload complete"
+#     redirect "/acct"
+#   end
 
 
 # SIGNUP/LOGIN >>>>>>>>>>>>>>>>>>>
@@ -190,8 +212,25 @@ post "/deletePost" do
   Post.find(params[:post_delete]).destroy
 
   redirect "/profile/#{current_user.id}"
-
 end
+
+post '/upload' do
+# post '/upload' do
+#     unless params[:file] &&
+#            (tmpfile = params[:file][:tempfile]) &&
+#            (name = params[:file][:filename])
+#       @error = "No file selected"
+#       return haml(:upload)
+#     end
+#     STDERR.puts "Uploading file, original name #{name.inspect}"
+#     while blk = tmpfile.read(65536)
+#       # here you would write it to its final location
+#       STDERR.puts blk.inspect
+#     end
+#     "Upload complete"
+#     redirect "/profile/#{current_user.id}"
+end
+
 
 
 patch "/editPost" do
