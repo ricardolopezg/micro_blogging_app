@@ -61,7 +61,7 @@
 	<li class="margins"><a href="/feed">Feed</a></li>
 	<li class="margins"><a href="/browse">Browse</a></li>
   <% if session[:user_id] %>
-	<li class="margins"><a href="/profile/<%= current_user.id %>">Profile</a></li>
+	<li class="margins"><a href="/profile/<%= current_user.id %>/<%= current_user.username %>">Profile</a></li>
   <% end %>
 </ul>
 

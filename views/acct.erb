@@ -2,29 +2,29 @@
   
     <strong>
       <ul id="fieldList">
-        <li>Account Details</li><br><hr>
-        <li>Username: </li><br>
-        <li>Email: </li><br>
-        <li>Password: </li><br>
-        <li>First Name: </li><br>
-        <li>Last Name: </li><br>
-        <li>Birthday: </li><br>
-        <li>Gender: </li><br>
-        <li>Sign: </li><br>
+        <li>Account Details</li><hr>
+        <li>Username: </li>
+        <li>Email: </li>
+        <li>Password: </li>
+        <li>First Name: </li>
+        <li>Last Name: </li>
+        <li>Birthday: </li>
+        <li>Gender: </li>
+        <li>Sign: </li>
       </ul>
     </strong>
 
   <ul id="currentInfo">
     
-    <li>Current Info</li><br><hr>
-    <li><%= current_user.username %></li><br>
-    <li><%= current_user.email %></li><br>
-    <li><%= current_user.password %></li><br>
-    <li><%= current_user.fname %></li><br>
-    <li><%= current_user.lname %></li><br>
-    <li><%= current_user.birthday.strftime("%B %-d, %Y") if !current_user.birthday.nil? %></li><br>
-    <li><%= current_user.gender %></li><br>
-    <li><%= current_user.sign %></li><br>
+    <li>Current Info</li><hr>
+    <li><%= current_user.username %></li>
+    <li><%= current_user.email %></li>
+    <li><%= current_user.password %></li>
+    <li><%= current_user.fname %></li>
+    <li><%= current_user.lname %></li>
+    <li><%= current_user.birthday.strftime("%B %-d, %Y") if !current_user.birthday.nil? %></li>
+    <li><%= current_user.gender %></li>
+    <li><%= current_user.sign %></li>
 
   </ul>
 
@@ -90,7 +90,7 @@
            <input type="submit" value="Unfollow"> 
         </form>
 
-    </li><br><br><br><br>
+    </li><br><br>
 
     <% end %>
 

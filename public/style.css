@@ -209,6 +209,7 @@ footer{
   width: 31.8em;
   border: lightblue 3px solid;
   border-radius: 10px;
+  clear: left;
 }
 
 .user_post .post_content {
@@ -243,12 +244,8 @@ footer{
 
 }
 
-#post_div {
-  float: left;
-}
-
 #acctData {
-  position: fixed;
+  position: absolute;
   right: 50px;
   top: 100px;
   height: 540px;
@@ -350,12 +347,23 @@ input:placeholder-shown {
 #followers{
   width: 20%;
   margin: 0;
+  float: left;
+  position: absolute;
+  padding: 0;
+  text-transform: uppercase;
 }
 
+#acctInfo, #followingList, #followingList ol li form input {
+  text-transform: uppercase;
+}
 /*Account page end*/
 
 
 /*Browse page begin*/
+
+#userlist{
+  margin: 0;
+}
 
 #userlist li {
 /*  float: left;*/
@@ -363,8 +371,9 @@ input:placeholder-shown {
   top: 2em;
   font-size: 24px;
   padding-top: 16px;
+  margin-left: 20px;
   position: relative;
-
+  text-transform: uppercase;
 
 }
 
