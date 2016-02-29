@@ -41,6 +41,12 @@
   </div>
 <% end %>
 
+<% if flash[:follow] %>
+  <div class="flash notice">
+    <%= flash[:follow] %>
+  </div>
+<% end %>
+
 
 <nav class="navbar-default">
 <ul class="navbar">

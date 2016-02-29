@@ -333,6 +333,11 @@ input:placeholder-shown {
 
 }
 
+#followers{
+  width: 20%;
+  margin: 0;
+}
+
 /*Account page end*/
 
 
