@@ -73,3 +73,28 @@
     <input type="submit" value="Delete Account">
   </form>
 </div>
+
+<br><br><br><br><br><br>
+
+<div id="followingList">
+    <h3>You are following:</h3>
+
+    <ol>
+    <% @following.each do |followee| %>
+
+    <li>
+        <%= User.find(followee.followee_id).username %>
+
+        <form method="POST" action="/unfollow">
+           <input type="hidden" value="<%= followee.followee_id %>" name="notFollowingAnymore">
+           <input type="submit" value="Unfollow"> 
+        </form>
+
+    </li><br><br><br><br>
+
+    <% end %>
+
+    
+    </ol>
+</div>
+
