@@ -21,13 +21,17 @@ nav{
 	z-index: 100;
 	margin-left: 100px;
 	margin-top: 10px;
+  padding-left: 40px;
 
+}
+#margins{
+  margin-left: 40px;
 }
 
 
 ul, li {
 	position: relative;
-	margin-left: 40px;
+/*	margin-left: 40px;*/
 	float: left;
 	font-family: 'Josefin Sans', sans-serif;
 	text-transform: uppercase;
@@ -49,14 +53,22 @@ nav ul li ul.fallback {
 	display:none;
 	position: absolute;
 	list-style-type: none;
+  margin: auto 0;
+  padding: 0px;
 
 }
 nav ul li:hover ul.fallback {
 	display:block;
+/*  position: relative;*/
 	list-style-type: none;
+  margin: auto 0;
+  padding: 5px;
 }
 
-
+.padding{
+  margin-top: 10px;
+  padding: 0px;
+}
 
 a:hover, a:visited, a:link, a:active
 {
@@ -283,6 +295,14 @@ footer{
   float: left;
   width: 48%;
 }
+
+.uploadphoto{
+  margin-top: 1000px;
+  float: left;
+}
+
+
+
 
 /* Profile Page - End 
 
