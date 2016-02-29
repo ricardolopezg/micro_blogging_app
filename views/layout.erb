@@ -49,19 +49,14 @@
 
 
 <nav class="navbar-default">
-<<<<<<< HEAD
-<ul class="navbar" id="margins">
-	<li id="margins"><a href="/feed">Feed</a></li>
-	<li id="margins"><a href="/browse">Browse</a></li>
-	<li id="margins"><a href="/profile/<%= current_user.id %>">Profile</a></li>
-=======
-<ul class="navbar">
-	<li><a href="/feed">Feed</a></li>
-	<li><a href="/browse">Browse</a></li>
-  <% if session[:user_id] %>
-	<li><a href="/profile/<%= current_user.id %>">Profile</a></li>
+
+<ul class="navbar" class="margins">
+	<li class="margins"><a href="/feed">Feed</a></li>
+	<li class="margins"><a href="/browse">Browse</a></li> 
+	<% if session[:user_id] %>
+	<li class="margins"><a href="/profile/<%= current_user.id %>">Profile</a></li>
   <% end %>
->>>>>>> master
+
 </ul>
 
 <% if session[:user_id] %>
