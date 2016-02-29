@@ -105,7 +105,8 @@ end
 
   def current_user
     @current_user = User.find(session[:user_id])
-  end
+  end 
+
 
 
 get "/logout" do
@@ -116,14 +117,14 @@ get "/logout" do
 end
 
 post "/signup" do
-	User.create(username: params[:username], password: params[:password], 
-		email: params[:email] )
+  User.create(username: params[:username], password: params[:password], 
+    email: params[:email] )
   @user = User.where(email: params[:email]).first
   session[:user_id] = @user.id
 
   flash[:welcome] = "Thanks for joining motherfucker"
 
-	redirect "/feed"
+  redirect "/feed"
 
 end
 
@@ -135,19 +136,28 @@ end
 get "/profile/:id" do 
 
   if session[:user_id] == nil
-
     redirect "/"
+  end
 
+  def user_textbox_display
+    User.find(session[:user_id]) == User.find(@profile_id)
   end
 
   @posts = Post.where(user_id: params[:id])
 
   @profile_id = params[:id]
-  @profile_name = User.find(@profile_id).username
 
+  @profile_username = User.find(@profile_id).username
 
   @followers = Follower.where(followee_id: params[:id] )
-  
+
+  @fname = User.find(params[:id]).fname
+  @lname = User.find(params[:id]).lname
+  @email = User.find(params[:id]).email
+  @sign = User.find(params[:id]).sign
+  @gender = User.find(params[:id]).gender
+  @birthday = User.find(params[:id]).birthday
+
   erb :profile
 end
 
@@ -157,13 +167,33 @@ get "/profile" do
   redirect "/profile/#{current_user.id}"
 end
 
-post "/profile" do 
+
+post "/addPost" do 
 
   Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
+
   redirect "/profile/#{current_user.id}"
 
+end
+
+
+post "/deletePost" do
+
+  Post.find(params[:post_delete]).destroy
+
+  redirect "/profile/#{current_user.id}"
 
 end
+
+
+patch "/editPost" do
+
+  Post.find(params[:post_edit]).update
+
+  redirect "/profile/#{current_user.id}"
+
+end
+
 
 post "/follow" do
 
@@ -181,6 +211,10 @@ post "/follow" do
 
 end
 
+
+
+
+
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
   if session[:user_id] == nil
@@ -190,6 +224,7 @@ get "/feed" do
   end
 
   @posts = Post.all
+  @last_ten_posts = Post.last(10)
   erb :feed
 end
 
