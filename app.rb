@@ -5,8 +5,7 @@ require "./models"
 require "sinatra/flash"
 require "paperclip"
 require "tempfile"
-
-
+require "blockspring"
 
 
 enable :sessions
@@ -262,8 +261,11 @@ get "/feed" do
 
   end
 
+  current_user.sign
+
   @posts = Post.all
   @last_ten_posts = Post.last(10)
+
   erb :feed
 end
 
