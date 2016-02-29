@@ -16,6 +16,12 @@ set :database, "sqlite3:horo.db"
 
 get "/" do   
 
+  if session[:user_id]
+
+    redirect "/feed"
+
+  end
+
   erb :home
 
 end
@@ -24,9 +30,14 @@ end
 # ACCOUNT >>>>>>>>>>>>>>>>>>>
 get "/acct" do
 
-  # current_user
+  if session[:user_id] == nil
 
-  erb :acct
+    redirect "/"
+
+  end
+
+    erb :acct
+
 end
 
 post "/acct" do
@@ -45,7 +56,35 @@ post "/acct" do
   redirect "/acct"
 end
 
+post "/deleteAcct" do
+
+  user = current_user
+
+  user.destroy
+
+  user_posts = Post.where(user_id: user.id)
+  
+  user_posts.each do |post|
+    post.destroy
+  end 
+
+  flash[:acctDelete] = "Your info is DELETED motherfucker"
+
+  session[:user_id] = nil
+
+  redirect "/"
+end
+
+
+# BROWSE >>>>>>>>>>>>>>>>>>>>>>>>
+
 get "/browse" do
+
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
 
   @users = User.all
 
@@ -88,20 +127,26 @@ end
 
   def current_user
     @current_user = User.find(session[:user_id])
-  end
+  end 
+
 
 
 get "/logout" do
-  session[:username] = nil
+  session[:user_id] = nil
    flash[:logout] = "Good bye motherfucker"
 
   redirect "/"
 end
 
 post "/signup" do
-	User.create(username: params[:username], password: params[:password], 
-		email: params[:email] )
-	redirect "/feed"
+  User.create(username: params[:username], password: params[:password], 
+    email: params[:email] )
+  @user = User.where(email: params[:email]).first
+  session[:user_id] = @user.id
+
+  flash[:welcome] = "Thanks for joining motherfucker"
+
+  redirect "/feed"
 
 end
 
@@ -111,17 +156,57 @@ end
 
 # PROFILE >>>>>>>>>>>>>>>>>>>
 get "/profile/:id" do 
+
+  if session[:user_id] == nil
+    redirect "/"
+  end
+
+  def user_textbox_display
+    User.find(session[:user_id]) == User.find(@profile_id)
+  end
+
   @posts = Post.where(user_id: params[:id])
-  
+
+  @profile_id = params[:id]
+
+  @profile_username = User.find(@profile_id).username
+
+  @followers = Follower.where(followee_id: params[:id] )
+
+  @fname = User.find(params[:id]).fname
+  @lname = User.find(params[:id]).lname
+  @email = User.find(params[:id]).email
+  @sign = User.find(params[:id]).sign
+  @gender = User.find(params[:id]).gender
+  @birthday = User.find(params[:id]).birthday
+
   erb :profile
 end
 
-post "/profile" do 
+get "/profile" do
+
+
+  redirect "/profile/#{current_user.id}"
+end
+
+
+post "/addPost" do 
 
   Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
+
   redirect "/profile/#{current_user.id}"
 
 end
+<<<<<<< HEAD
+=======
+
+
+post "/deletePost" do
+
+  Post.find(params[:post_delete]).destroy
+
+  redirect "/profile/#{current_user.id}"
+>>>>>>> master
 
 post '/upload' do
     unless params[:file] &&
@@ -141,11 +226,45 @@ end
 
 
 
+patch "/editPost" do
+
+  Post.find(params[:post_edit]).update
+
+  redirect "/profile/#{current_user.id}"
+
+end
+
+
+post "/follow" do
+
+  Follower.create(followee_id: params[:followee], follower_id: current_user.id)
+
+  @followee_num = params[:followee]
+  followee_name = User.find(@followee_num).username
+
+  flash[:follow] = "You are now following #{followee_name}!"
+
+  # redirect "/profile/#{@followee_num} %>"
+  redirect "/feed"
+
+  #I cannot get this redirect to work :(
+
+end
+
+
+
 
 
 # FEED >>>>>>>>>>>>>>>>>>>
 get "/feed" do 
+  if session[:user_id] == nil
+
+    redirect "/"
+
+  end
+
   @posts = Post.all
+  @last_ten_posts = Post.last(10)
   erb :feed
 end
 

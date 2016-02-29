@@ -22,7 +22,7 @@
     <li><%= current_user.password %></li><br>
     <li><%= current_user.fname %></li><br>
     <li><%= current_user.lname %></li><br>
-    <li><%= current_user.birthday.strftime("%B %-d, %Y") %></li><br>
+    <li><%= current_user.birthday.strftime("%B %-d, %Y") if !current_user.birthday.nil? %></li><br>
     <li><%= current_user.gender %></li><br>
     <li><%= current_user.sign %></li><br>
 
@@ -38,13 +38,14 @@
     <input type="text" name="lname" placeholder="New Last Name"/><br>
     <input type="date" name="birthday" placeholder="New Birthday"/><br>
     <select name="gender" placeholder="New Gender"/>
-        <datalist id="genders">
+        <option value = ""></option>
         <option value = "Male">Male</option>
         <option value = "Female">Female</option>
         <option value = "Depends on the day">Depends on the day</option>
         <option value = "Trans">Trans</option>
     </select><br>
     <select name="sign" placeholder="New Sign">
+        <option value = ""></option>
         <option value = "Aries">Aries</option>
         <option value = "Taurus">Taurus</option>
         <option value = "Gemini">Gemini</option>
@@ -63,4 +64,12 @@
 
   </form>
 
+</div>
+
+<br><br><br><br><br><br>
+
+<div id="deleteAcct">
+  <form method="post" action="/deleteAcct">
+    <input type="submit" value="Delete Account">
+  </form>
 </div>

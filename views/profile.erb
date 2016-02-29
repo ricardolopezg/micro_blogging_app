@@ -1,26 +1,105 @@
-<form id = "post_form" action = "/profile" method = "POST">
+<% if user_textbox_display %>
+<form id = "post_form" action = "/addPost" method = "POST">
   <!-- <input type = "text" name = "content" placeholder = "Comment in 140 characters or less" maxlength = "140"></input> -->
   <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140"></textarea>
   <input type = "Submit" value = "Post"></input>
 </form>
+<% end %>
 
-
+<!-- I think in order to make this look right, the form should go in the middle div, along with the list of posts. -->
 <h2 id = "posts_title">Your Posts:</h2>
-<div class = "user_post">
+
+<div id="followers" class="post_div">
+
+  <div id="followerList">
+
+    <h3>Followers:</h3><br>
+    <ol>
+      <% if !@followers.nil? %>
+
+        <% @followers.each do |follower| %>
+        <li><%= User.find(follower.follower_id).username %></li><br>
+        
+        <% end %>
+      
+      <% end %>      
+    </ol><br>
+  </div>
+
+
+  <form method="POST" action="/follow">
+
+
+    <input type="hidden" name="followee" value="<%= @profile_id %>" />
+
+    <!-- <input type="hidden" name="follower" value="<%= current_user.id %>" /> -->
+
+    <input type="submit" value="Follow <%= @profile_username %>" />
+
+  </form>
+</div>
+
+<div class = "user_post post_div">
   <% @posts.reverse_each do |post| %>
   
   <p class = "post_content">  
     <%= post.content %>
   </p>
   <p class = "post_username">  
-    <%= User.where(id: post.user_id).pluck(:username).first %>
+    <%= User.find(post.user_id).username %>
   </p>
   <p class = "post_timestamp">
     <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
   </p>
+  <form class = "post_edit" method="POST" action="/editPost">
+    <input type="submit" value="Edit"></input>
+    <input type="hidden" value="<%= post.id %>" name="post_edit"></input>
+  </form>
+  <form class = "post_delete" method="POST" action="/deletePost">
+    <input type="submit" value="Delete"></input>
+    <input type="hidden" value="<%= post.id %>" name="post_delete"></input>
+  </form>
   <hr>
   <% end %>  
 </div>
+
+
+<div id="acctData" class="post_div">
+  <img src = "http://cdn.xl.thumbs.canstockphoto.com/canstock23435118.jpg">
+  <h3>Username:</h3>
+    <p><%= @profile_username %></p>
+  <h3>Name:</h3>
+    <p><%= @fname %>  <%= @lname.first %>.</p>
+  <h3>Birthday:</h3>
+    <p><%= @birthday.strftime("%B %-d, %Y") if !@birthday.nil? %></p>
+    <h3>Email:</h3>
+      <p><%= @email %></p>
+  <div id="acctData_align1">
+    <h3>Gender:</h3>
+      <p><%= @gender %></p>
+    <h3>Sign:</h3>
+      <p><%= @sign %></p>
+  </div>
+  <div id="acctData_align2">
+    <h3>Lives in:</h3>
+     <p>An UPSTATE farm</p>
+  <h3>Most Known For:</h3>
+    <p>Farming, Grazing</p>  
+  </div>
+  <h3>Favorite Games:</h3>
+    <p>Farmville, HayDay, Chase the Chicken</p>
+  <h3>Goals:</h3>
+    <p>Convince dem city folk that I is a city girl.</p>
+  <div id="acctData_align3">
+    <h3># Followers</h3>
+    <p>20</p>
+  </div>
+  <div id="acctData_align4">
+    <h3># Following</h3>
+      <p>20</p>
+  </div>
+</div>
+
   
 <div class="uploadphoto">
   <h1>Upload Photo</h1>
