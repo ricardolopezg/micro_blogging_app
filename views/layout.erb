@@ -8,6 +8,14 @@
   <script type="text/javascript" src="/jquery.js"></script>
   <script type="text/javascript" src="/script.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Raleway|Poiret+One|Josefin+Sans|Abel' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://cdn.blockspring.com/blockspring.js"></script>
+<script>
+  blockspring.runParsed("daily-horoscope", { "sign": "<%= current_user.sign %>" }, { "api_key": "br_25813_bb41db6bcd0bb30dda18623defc20c0c0a1a4cf9" }, function(res){
+    console.log(res.params["horoscope"]);
+   $("#outputhoro").text(res.params["horoscope"]);
+  })
+</script>
 </head>
 <body>
 
@@ -78,12 +86,7 @@
 
 
   <%= yield %>
-  
-<div id="container">
-   <div id="header"></div>
-   <div id="body"></div>
-   <div id="footer"></div>
-</div>
+
 
 
 <footer>All rights reserved. We are not responsible for the actions the users take while on horo. Note; Horoscopes dont work.</footer>

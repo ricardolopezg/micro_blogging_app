@@ -11,3 +11,4 @@ gem "rake"
 gem "shotgun"
 gem "paperclip"
 gem 'paperclip-rack'
+gem 'blockspring'
