@@ -53,6 +53,10 @@ post "/acct" do
   user.update_attribute(:birthday, params[:birthday]) if params[:birthday] != ""
   user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
   user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
+  user.update_attribute(:location, params[:location]) if params[:location] != ""
+  user.update_attribute(:known_for, params[:known_for]) if params[:known_for] != ""
+  user.update_attribute(:favorite_games, params[:favorite_games]) if params[:favorite_games] != ""
+  user.update_attribute(:goals, params[:goals]) if params[:goals] != ""
 
 
   redirect "/acct"
@@ -186,6 +190,10 @@ get "/profile/:id/:username" do
   @sign = User.find(params[:id]).sign
   @gender = User.find(params[:id]).gender
   @birthday = User.find(params[:id]).birthday
+  @location = User.find(params[:id]).location
+  @known_for = User.find(params[:id]).known_for
+  @favorite_games = User.find(params[:id]).favorite_games
+  @goals = User.find(params[:id]).goals
 
   erb :profile
 end
@@ -195,7 +203,7 @@ get "/profile" do
     redirect "/"
   end
 
-  redirect "/profile/#{current_user.id}/#{current_user.username}/"
+  redirect "/profile/#{current_user.id}/#{current_user.username}"
 end
 
 
@@ -206,7 +214,7 @@ post "/addPost" do
 
   Post.create(user_id: current_user.id,content: params[:content], post_date: Time.now )
 
-  redirect "/profile/#{current_user.id}"
+  redirect "/profile/#{current_user.id}/#{current_user.username}"
 
 end
 
@@ -218,7 +226,7 @@ post "/deletePost" do
 
   Post.find(params[:post_delete]).destroy
 
-  redirect "/profile/#{current_user.id}/#{current_user.username}/"
+  redirect "/profile/#{current_user.id}/#{current_user.username}"
 end
 
 
@@ -230,7 +238,7 @@ post "/updatePost" do
 
     Post.find(params[:post_update]).update(content: params[:content])
 
-  redirect "/profile/#{current_user.id}"
+  redirect "/profile/#{current_user.id}/#{current_user.username}"
 
 end
 

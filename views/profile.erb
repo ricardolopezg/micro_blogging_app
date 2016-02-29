@@ -95,21 +95,19 @@
   </div>
   <div id="acctData_align2">
     <h3>Lives in:</h3>
-     <p>An UPSTATE farm</p>
+      <p><%= @location %></p>
   <h3>Most Known For:</h3>
-    <p>Farming, Grazing</p>  
+      <p><%= @known_for %></p>
   </div>
   <h3>Favorite Games:</h3>
-    <p>Farmville, HayDay, Chase the Chicken</p>
+    <p><%= @favorite_games %></p>
   <h3>Goals:</h3>
-    <p>Convince dem city folk that I is a city girl.</p>
+    <p><%= @goals %></p>
   <div id="acctData_align3">
-    <h3># Followers</h3>
-    <p>20</p>
+    <h3># Followers: <%= Follower.where(followee_id: @profile_id).count() %></h3>
   </div>
   <div id="acctData_align4">
-    <h3># Following</h3>
-      <p>20</p>
+    <h3># Following: <%= Follower.where(follower_id: @profile_id).count() %></h3>
   </div>
 </div>
 
