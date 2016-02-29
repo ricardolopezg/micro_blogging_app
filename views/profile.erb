@@ -25,12 +25,12 @@
       <% if !@followers.nil? %>
 
         <% @followers.each do |follower| %>
-        <li><%= User.find(follower.follower_id).username %></li><br>
+        <li><%= User.find(follower.follower_id).username %></li>
         
         <% end %>
       
       <% end %>      
-    </ol><br>
+    </ol>
   </div>
 
 

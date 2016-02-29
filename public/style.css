@@ -345,12 +345,21 @@ input:placeholder-shown {
   margin: 0;
   float: left;
   position: absolute;
+  padding: 0;
+  text-transform: uppercase;
 }
 
+#acctInfo, #followingList, #followingList ol li form input {
+  text-transform: uppercase;
+}
 /*Account page end*/
 
 
 /*Browse page begin*/
+
+#userlist{
+  margin: 0;
+}
 
 #userlist li {
 /*  float: left;*/
@@ -360,6 +369,8 @@ input:placeholder-shown {
   padding-top: 16px;
   margin-left: 20px;
   position: relative;
+  text-transform: uppercase;
+
 }
 
 /*Browse page end*/
