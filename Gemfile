@@ -8,3 +8,6 @@ gem "sinatra-activerecord"
 gem "sinatra-flash"
 gem "sqlite3"
 gem "rake"
+gem "shotgun"
+gem "paperclip"
+gem 'paperclip-rack'
