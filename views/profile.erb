@@ -69,7 +69,7 @@
   <h3>Username:</h3>
     <p><%= @profile_username %></p>
   <h3>Name:</h3>
-    <p><%= @fname %>  <%= @lname.first %>.</p>
+    <p><%= @fname %>  <%= @lname.first if !@lname.nil? %>.</p>
   <h3>Birthday:</h3>
     <p><%= @birthday.strftime("%B %-d, %Y") if !@birthday.nil? %></p>
     <h3>Email:</h3>
