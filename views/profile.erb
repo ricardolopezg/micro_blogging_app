@@ -8,8 +8,15 @@
 <!-- I think in order to make this look right, the form should go in the middle div, along with the list of posts. -->
 <h2 id = "posts_title">Your Posts:</h2>
 
-<div id="followers" class="post_div">
+<div id="followers">
 
+  <form method="POST" action="/follow">
+
+    <input type="hidden" name="followee" value="<%= @profile_id %>" />
+    <input type="submit" value="Follow <%= @profile_username %>" />
+
+  </form>
+  
   <div id="followerList">
 
     <h3>Followers:</h3><br>
@@ -17,28 +24,20 @@
       <% if !@followers.nil? %>
 
         <% @followers.each do |follower| %>
-        <li><%= User.find(follower.follower_id).username %></li><br>
+        <li><%= User.find(follower.follower_id).username %></li>
         
         <% end %>
       
       <% end %>      
-    </ol><br>
+    </ol>
   </div>
-
-
-  <form method="POST" action="/follow">
-    <input type="hidden" name="followee" value="<%= @profile_id %>" />
-
-    <!-- <input type="hidden" name="follower" value="<%= current_user.id %>" /> -->
-
-    <input type="submit" value="Follow <%= @profile_username %>" />
-  </form>
+  
 </div>
 
 
 
+<div class = "user_post">
 
-<div class = "user_post post_div">
   <% @posts.reverse_each do |post| %>
   
   <p class = "post_content">  
@@ -76,7 +75,9 @@
 
 
 
-<div id="acctData" class="post_div">
+
+<div id="acctData">
+
   <img src = "http://cdn.xl.thumbs.canstockphoto.com/canstock23435118.jpg">
   <h3>Username:</h3>
     <p><%= @profile_username %></p>

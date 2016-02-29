@@ -10,5 +10,5 @@ gem "sqlite3"
 gem "rake"
 gem "shotgun"
 gem "paperclip"
-gem 'paperclip-rack'
-gem 'blockspring'
+gem "paperclip-rack"
+gem "blockspring"
