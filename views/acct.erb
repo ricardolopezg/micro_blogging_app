@@ -11,6 +11,10 @@
         <li>Birthday: </li>
         <li>Gender: </li>
         <li>Sign: </li>
+        <li>Location: </li>
+        <li>Known For: </li>
+        <li>Favorite Games: </li>
+        <li>Goals: </li>
       </ul>
     </strong>
 
@@ -25,6 +29,10 @@
     <li><%= current_user.birthday.strftime("%B %-d, %Y") if !current_user.birthday.nil? %></li>
     <li><%= current_user.gender %></li>
     <li><%= current_user.sign %></li>
+    <li><%= current_user.location %></li>
+    <li><%= current_user.known_for %></li>
+    <li><%= current_user.favorite_games %></li>
+    <li><%= current_user.goals %></li>
 
   </ul>
 
@@ -59,6 +67,10 @@
         <option value = "Aquarius">Aquarius</option>
         <option value = "Pisces">Pisces</option>
     </select><br>
+    <input type="text" name="location" placeholder="Location"/><br>
+    <input type="text" name="known_for" placeholder="Known For"/><br>
+    <input type="text" name="favorite_games" placeholder="Favorite Games"/><br>
+    <input type="text" name="goals" placeholder="Goals"/><br>
     <br>
     <input type="submit" value="Update Info">
 

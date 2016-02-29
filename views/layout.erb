@@ -11,10 +11,11 @@
   <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="https://cdn.blockspring.com/blockspring.js"></script>
 <script>
+  <% if session[:user_id] %>
   blockspring.runParsed("daily-horoscope", { "sign": "<%= current_user.sign %>" }, { "api_key": "br_25813_bb41db6bcd0bb30dda18623defc20c0c0a1a4cf9" }, function(res){
-    console.log(res.params["horoscope"]);
    $("#outputhoro").text(res.params["horoscope"]);
   })
+  <% end %>
 </script>
 </head>
 <body>
