@@ -1,20 +1,32 @@
-<h2 id = "posts_title">Public Feed:</h2>
-<div class = "user_post">
-  <% @last_ten_posts.reverse_each do |post| %>
-  
-  <p class = "post_content">  
-    <%= post.content %>
-  </p>
-  <p class = "post_username">  
-    <%= User.find(post.user_id).username %>
-  </p>
-  <p class = "post_timestamp">
-    <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
-  </p>
-  
-  <!-- <a class = "post_edit" href="/">Edit</a>
-  <a class = "post_delete" href="/">Delete</a> -->
-  <hr>
-  <% end %> 
+<div id= "dailyhoro">
+
+  <%= current_user.sign %>:<br><br>
+
+  <div id=outputhoro></div>
+
+
 </div>
-  
+
+
+
+<div class="feedtable">
+  <h2 class="posters">Public Feed:</h2>
+    <div>
+      <% @last_ten_posts.reverse_each do |post| %>
+      
+      <p>  
+        <%= post.content %>
+      </p>
+      <p>  
+        <%= User.find(post.user_id).username %>
+      </p>
+      <p>
+        <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
+      </p>
+      
+      <!-- <a class = "post_edit" href="/">Edit</a>
+      <a class = "post_delete" href="/">Delete</a> -->
+      <hr>
+      <% end %> 
+  </div>
+</div>

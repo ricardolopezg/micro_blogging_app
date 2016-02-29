@@ -1,7 +1,16 @@
 <ul id="userlist">
+  
   <% @users.each do |user| %>
+
   <li>
     <a href = "profile/<%= user.id %>/<%= user.username %>"><%= user.username %></a>
   </li><br><br>
+
   <% end %>
 </ul>
+
+<div id="container">
+   <div id="header"></div>
+   <div id="body"></div>
+   <div id="footer"></div>
+</div>
