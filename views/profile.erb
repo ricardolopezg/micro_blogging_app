@@ -1,6 +1,5 @@
 <% if user_textbox_display %>
 <form id = "post_form" action = "/addPost" method = "POST">
-  <!-- <input type = "text" name = "content" placeholder = "Comment in 140 characters or less" maxlength = "140"></input> -->
   <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140"></textarea>
   <input type = "Submit" value = "Post"></input>
 </form>
@@ -28,16 +27,16 @@
 
 
   <form method="POST" action="/follow">
-
-
     <input type="hidden" name="followee" value="<%= @profile_id %>" />
 
     <!-- <input type="hidden" name="follower" value="<%= current_user.id %>" /> -->
 
     <input type="submit" value="Follow <%= @profile_username %>" />
-
   </form>
 </div>
+
+
+
 
 <div class = "user_post post_div">
   <% @posts.reverse_each do |post| %>
@@ -51,10 +50,18 @@
   <p class = "post_timestamp">
     <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
   </p>
-  <form class = "post_edit" method="POST" action="/editPost">
-    <input type="submit" value="Edit"></input>
-    <input type="hidden" value="<%= post.id %>" name="post_edit"></input>
+  <button class = "edit_post_btn" value="<%= post.id %>">Edit</button>
+  
+<!-- Hidden until edit button clicked -->
+<!-- Update Post -->
+  <form class = "update_post_form" action = "/updatePost" method = "POST">
+    <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140"><%= post.content %></textarea>
+    <input type = "Submit" id = "cancel_post_edit" value = "Cancel"></input>
+    <input type = "Submit" value = "Update"></input>
+    <input type="hidden" value="<%= post.id %>" name="post_update"></input>
   </form>
+
+<!-- Delete post button -->
   <form class = "post_delete" method="POST" action="/deletePost">
     <input type="submit" value="Delete"></input>
     <input type="hidden" value="<%= post.id %>" name="post_delete"></input>
@@ -64,12 +71,17 @@
 </div>
 
 
+
+
+
+
+
 <div id="acctData" class="post_div">
   <img src = "http://cdn.xl.thumbs.canstockphoto.com/canstock23435118.jpg">
   <h3>Username:</h3>
     <p><%= @profile_username %></p>
   <h3>Name:</h3>
-    <p><%= @fname %>  <%= @lname.first %>.</p>
+    <p><%= @fname %>  <%= @lname.first if !@lname.nil? %>.</p>
   <h3>Birthday:</h3>
     <p><%= @birthday.strftime("%B %-d, %Y") if !@birthday.nil? %></p>
     <h3>Email:</h3>
