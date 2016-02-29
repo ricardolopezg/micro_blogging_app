@@ -15,7 +15,7 @@ nav{
 
 
 .navbar{
-	float: left;
+	display: block;
 	list-style: none;
 	position: fixed;
 	z-index: 100;
@@ -24,15 +24,16 @@ nav{
   padding-left: 40px;
 
 }
-.margins{
+.margins {
   margin-left: 40px;
 }
 
 
-ul, li {
+.margins, .navbar,  .fallback, .padding, .usernamenav {
 	position: relative;
 /*	margin-left: 40px;*/
-	float: left;
+	/*float: left;*/
+  display: inline-block;
 	font-family: 'Josefin Sans', sans-serif;
 	text-transform: uppercase;
 }
@@ -41,7 +42,7 @@ ul, li {
 .usernamenav {
 	float: left;
 	margin-top: 10px;
-	margin-left: 900px;
+	margin-left: 700px;
 	list-style: none;
 	position: fixed;
 	z-index: 1000;
@@ -145,27 +146,16 @@ body {
    font-family: 'Josefin Sans', sans-serif;
 }
 #container {
-   min-height:100%;
+   min-height:50%;
    position:relative;
    z-index: -1;
 }
-#header {
-   padding:10px;
-}
-#body {
-   padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
-}
-#footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
 
-   height:60px;   /* Height of the footer */
-}
 footer{
   font-size: 12px;
   margin-left: 10px;
+  z-index: 10000000000;
+  clear: both;
 }
 
 #container {
@@ -368,10 +358,13 @@ input:placeholder-shown {
 /*Browse page begin*/
 
 #userlist li {
+/*  float: left;*/
   display: block;
   top: 2em;
   font-size: 24px;
   padding-top: 16px;
+  position: relative;
+
 
 }
 
@@ -381,7 +374,33 @@ input:placeholder-shown {
 
 
 
+/*Feed*/
+#dailyhoro{
+  border: 1px solid black;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  margin-left: 500px;
+  margin-top: 100px;
+  float: left;
+}
 
+.feedtable{
+  margin-left: 1000px;
+  margin-top: 200px;
+/*  border: 1px solid black;*/
+  float: both;
+  clear: left;
+  margin-left: 300px;
+  width: 500px;
+  padding: 100px;
+
+
+}
+
+.posters{
+  margin: 0px;
+}
 
 
 

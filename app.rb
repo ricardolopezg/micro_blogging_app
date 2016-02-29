@@ -5,8 +5,7 @@ require "./models"
 require "sinatra/flash"
 require "paperclip"
 require "tempfile"
-
-
+require "blockspring"
 
 
 enable :sessions
@@ -36,6 +35,8 @@ get "/acct" do
 
   end
 
+    @following = Follower.where(follower_id: current_user.id)
+    
     erb :acct
 
 end
@@ -53,20 +54,19 @@ post "/acct" do
   user.update_attribute(:gender, params[:gender]) if params[:gender] != ""
   user.update_attribute(:sign, params[:sign]) if params[:sign] != ""
 
+
   redirect "/acct"
 end
 
 post "/deleteAcct" do
 
-  user = current_user
+  current_user.destroy
 
-  user.destroy
-
-  user_posts = Post.where(user_id: user.id)
+  Post.where(user_id: current_user.id).destroy_all
   
-  user_posts.each do |post|
-    post.destroy
-  end 
+  Follower.where(follower_id: current_user.id).destroy_all
+
+  Follower.where(followee_id: current_user.id).destroy_all
 
   flash[:acctDelete] = "Your info is DELETED motherfucker"
 
@@ -75,6 +75,13 @@ post "/deleteAcct" do
   redirect "/"
 end
 
+post "/unfollow" do
+
+  Follower.where(followee_id: params[:notFollowingAnymore], follower_id: current_user.id).destroy_all
+
+  redirect "/acct"
+
+end
 
 # BROWSE >>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -257,10 +264,7 @@ post "/follow" do
 
   flash[:follow] = "You are now following #{followee_name}!"
 
-  # redirect "/profile/#{@followee_num} %>"
-  redirect "/feed"
-
-  #I cannot get this redirect to work :(
+  redirect "/profile/#{@followee_num}"
 
 end
 
@@ -276,8 +280,11 @@ get "/feed" do
 
   end
 
+  current_user.sign
+
   @posts = Post.all
   @last_ten_posts = Post.last(10)
+
   erb :feed
 end
 
