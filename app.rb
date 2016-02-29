@@ -197,8 +197,6 @@ post "/addPost" do
   redirect "/profile/#{current_user.id}"
 
 end
-<<<<<<< HEAD
-=======
 
 
 post "/deletePost" do
@@ -206,7 +204,7 @@ post "/deletePost" do
   Post.find(params[:post_delete]).destroy
 
   redirect "/profile/#{current_user.id}"
->>>>>>> master
+end
 
 post '/upload' do
     unless params[:file] &&
