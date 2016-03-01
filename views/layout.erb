@@ -20,27 +20,50 @@
 </head>
 <body>
 
-<% if flash[:notice] %>
-	<div class="flash notice">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
-<% if flash[:alert] %>
-	<div class= "alert notice">
-		<%= flash[:alert] %>
-	</div>
-<% end %>
-
-<% if flash[:logout] %>
-	<div class="flash notice">
-		<%= flash[:logout] %>
-	</div>
-<% end %>
-
 <% if flash[:logout] %>
   <div class="flash notice">
     <%= flash[:logout] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class= "alert notice">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+
+<nav class="navbar-default">
+<ul class="navbar" class="margins">
+  <li class="margins"><a href="/feed">Feed</a></li>
+  <li class="margins"><a href="/browse">Browse</a></li>
+  <% if session[:user_id] %>
+  <li class="margins"><a href="/profile/<%= current_user.id %>/<%= current_user.username %>">Profile</a></li>
+  <% end %>
+</ul>
+
+<% if session[:user_id] %>
+  <ul class="usernamenav">
+    <li>
+  <%= current_user.username %>
+      <ul class="fallback">
+            <li class= "padding">
+              <a href="/acct">Account</a>
+            </li>
+            <li class= "padding">
+              <a href="/logout">Log Out</a>
+            </li>
+        </ul>
+    </li>
+  </ul>
+<% end %>
+</nav>
+
+
+<div id = "flash">
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <%= flash[:notice] %>
   </div>
 <% end %>
 
@@ -55,33 +78,8 @@
     <%= flash[:follow] %>
   </div>
 <% end %>
+</div>
 
-
-<nav class="navbar-default">
-<ul class="navbar" class="margins">
-	<li class="margins"><a href="/feed">Feed</a></li>
-	<li class="margins"><a href="/browse">Browse</a></li>
-  <% if session[:user_id] %>
-	<li class="margins"><a href="/profile/<%= current_user.id %>/<%= current_user.username %>">Profile</a></li>
-  <% end %>
-</ul>
-
-<% if session[:user_id] %>
-	<ul class="usernamenav">
-		<li>
-	<%= current_user.username %>
-			<ul class="fallback">
-	       		<li class= "padding">
-	       			<a href="/acct">Account</a>
-	       		</li>
-	        	<li class= "padding">
-	        		<a href="/logout">Log Out</a>
-	        	</li>
-	    	</ul>
-		</li>
-	</ul>
-<% end %>
-</nav>
 
 
 
