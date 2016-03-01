@@ -50,11 +50,13 @@
     <%= post.post_date.getlocal.strftime("%b %-d, %Y  %l:%M %p") %>
   </p>
   <button class = "edit_post_btn" value="<%= post.id %>">Edit</button>
+
+
   
 <!-- Hidden until edit button clicked -->
 <!-- Update Post -->
   <form class = "update_post_form" action = "/updatePost" method = "POST">
-    <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140"><%= post.content %></textarea>
+    <textarea name = "content" placeholder = "Type 140 characters or less" maxlength = "140" rows = "4" cols = "66"><%= post.content %></textarea>
     <input type = "Submit" id = "cancel_post_edit" value = "Cancel"></input>
     <input type = "Submit" value = "Update"></input>
     <input type="hidden" value="<%= post.id %>" name="post_update"></input>
