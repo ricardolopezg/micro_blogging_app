@@ -299,8 +299,9 @@ get "/feed" do
 
   current_user.sign
 
-  @posts = Post.all
-  @last_ten_posts = Post.last(10)
+  @following_list = Follower.where(follower_id: current_user.id).pluck(:followee_id)
+
+  @last_ten_posts = Post.where(user_id: @following_list).last(10)
 
   erb :feed
 end
