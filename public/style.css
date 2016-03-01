@@ -194,10 +194,6 @@ footer{
   margin: 0;
 }
 
-.update_post_form {
-  display: none;
-}
-
 .user_post {
   position: relative;
   left: 12.5em;
@@ -210,6 +206,12 @@ footer{
   border: lightblue 3px solid;
   border-radius: 10px;
   clear: left;
+}
+
+.user_post .update_post_form {
+  display: none;
+  /*padding: 10px 15px;*/
+
 }
 
 .user_post .post_content {
@@ -229,20 +231,29 @@ footer{
   margin: -15px 0 0;
 }
 
-.user_post .post_edit{
-  font-size: .75em;
+.post_delete {
+  height: 0;
+}
+
+.user_post .post_delete input[type = "submit"], .edit_post_btn {
+  border-radius: 10px;
+  background-color: white;
+  font-size: 12px;
+}
+
+.edit_post_btn {
   position: relative;
-  left: 36em;
+  left: 43em;
   top: -1.3em;
 }
 
-.user_post .post_delete {
-  font-size: .75em;
-  position: relative;
-  left: 37em;
-  top: -1.3em;
 
+.user_post .post_delete input[type = "submit"] {
+  position: relative;
+  left: 47em;
+  top: -3.1em;
 }
+
 
 #acctData {
   position: absolute;
@@ -347,13 +358,19 @@ input:placeholder-shown {
 #followers{
   width: 20%;
   margin: 0;
-  float: left;
   position: absolute;
-  padding: 0;
+  top: 100px;
+  left: 20px;
   text-transform: uppercase;
 }
 
-#acctInfo, #followingList, #followingList ol li form input {
+#followerList ol {
+  position: absolute;
+  top: 90px;
+  left: -25px;
+}
+
+#acctInfo, #followerList, #followerList ol li form input {
   text-transform: uppercase;
 }
 /*Account page end*/
