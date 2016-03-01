@@ -13,6 +13,11 @@ nav{
 	
 }
 
+#flash {
+  position: absolute;
+  top: 33px;
+  left: 5px;
+}
 
 .navbar{
 	display: block;
