@@ -64,13 +64,13 @@ end
 
 post "/deleteAcct" do
 
-  current_user.destroy
-
   Post.where(user_id: current_user.id).destroy_all
-  
-  Follower.where(follower_id: current_user.id).destroy_all
 
+  Follower.where(follower_id: current_user.id).destroy_all
+  
   Follower.where(followee_id: current_user.id).destroy_all
+
+  current_user.destroy
 
   flash[:acctDelete] = "Your info is DELETED motherfucker"
 
